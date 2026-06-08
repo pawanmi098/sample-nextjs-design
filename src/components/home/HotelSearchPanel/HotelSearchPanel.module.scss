@@ -7,6 +7,10 @@
 //             ≤tablet (768px)  → iPhone & iPad Mini get mobile view
 // =============================================================================
 
+.panelHidden {
+  visibility: hidden;
+}
+
 .panel {
   width: 100%;
   padding: rem(16px);
@@ -206,6 +210,50 @@
   color: var(--text-secondary);
 }
 
+// -----------------------------------------------------------------------------
+// PNR search form — mobile: stacked (same as destination), desktop: 3-col grid
+// Figma mweb: 455:13505 | Figma web: 185:32037
+// -----------------------------------------------------------------------------
+
+.pnrSearchBox {
+  display: flex;
+  flex-direction: column;
+  gap: rem(19px);
+}
+
+.pnrFields {
+  display: flex;
+  flex-direction: column;
+  gap: rem(9px);
+}
+
+// PNR text input — replaces .fieldValue span inside PNR fields
+.pnrInput {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-family: var(--font-family-poppins-semibold);
+  font-size: rem(12px);
+  font-weight: 600;
+  line-height: rem(18px);
+  color: var(--color-text-light);
+
+  &::placeholder {
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+}
+
+// Search icon inside PNR button — hidden on mobile, visible on desktop
+.pnrBtnIcon {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
 // Mobile search button: full-width, 48px tall, gold, border-radius 8px
 // Figma Frame 2147226819: fill #A97D0E, h=48px, border-radius 8px
 .searchButton {
@@ -348,5 +396,43 @@
     margin: rem(22px) rem(20px);
     border-radius: rem(8px);
     padding: 0;
+  }
+
+  // ── PNR desktop overrides ───────────────────────────────────────────────────
+
+  // PNR container: 3-col grid (PNR field | Last Name field | Search button)
+  // Figma web: 185:32037 — 1120x102 bg=#1D1D1D, border=#7A859F, radius=12
+  .pnrSearchBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr rem(220px);
+    min-height: rem(102px);
+    overflow: hidden;
+    border: 1px solid var(--color-border-secondary);
+    border-radius: rem(12px);
+    background: var(--background-dark);
+    box-shadow: 0 rem(2px) rem(40px) rgba(0, 0, 0, 0.07);
+    gap: 0;
+  }
+
+  // Unwrap .pnrFields so PNR and LastName become direct grid children (cols 1 & 2)
+  .pnrFields {
+    display: contents;
+  }
+
+  // Desktop PNR value: Figma shows Poppins Medium 10px/15px (185:32055, 185:32058)
+  .pnrInput {
+    font-family: var(--font-family-poppins-medium);
+    font-size: rem(10px);
+    font-weight: 500;
+    line-height: rem(15px);
+
+    &::placeholder {
+      font-weight: 500;
+    }
+  }
+
+  // Show search icon in PNR button on desktop
+  .pnrBtnIcon {
+    display: flex;
   }
 }

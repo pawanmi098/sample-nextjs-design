@@ -50,9 +50,14 @@
   ],
   "searchFormContent": {
     "searchByDestination": "Search by Destination",
+    "searchByLocation": "Location",
     "searchByPNR": "Search by PNR",
     "newLabel": "New",
-    "searchBtnTitle": "Search"
+    "searchBtnTitle": "Search",
+    "pnrLabel": "Search by PNR",
+    "pnrPlaceholder": "Enter PNR",
+    "lastNameLabel": "Last Name",
+    "lastNamePlaceholder": "Enter Last Name"
   },
   "recentSearchContent": {
     "recentSearches": "Recent searches",
