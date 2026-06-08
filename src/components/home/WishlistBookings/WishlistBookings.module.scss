@@ -1,0 +1,81 @@
+@use '../../../styles/_shared' as *;
+
+// BASE — MOBILE FIRST (mweb)
+// Figma node: 455:13117 — icon-only circular buttons, 28×28, bg-primary, no border
+
+.wishlistBookings {
+  display: flex;
+  align-items: center;
+  gap: rem(10px);
+}
+
+.actionPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(36px);
+  height: rem(36px);
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  color: var(--color-text-light);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: rem(2px) solid var(--color-outline-border);
+    outline-offset: rem(2px);
+  }
+}
+
+.actionLabel {
+  display: none;
+}
+
+.mwebHidden {
+  display: none;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  inline-size: rem(18px);
+  block-size: rem(18px);
+}
+
+// DESKTOP OVERRIDES (>768px)
+@include media(">tablet") {
+  .mwebHidden {
+    display: inline-flex;
+  }
+
+  .wishlistBookings {
+    gap: rem(24px);
+  }
+
+  .actionPill {
+    display: inline-flex;
+    gap: rem(12px);
+    width: auto;
+    height: rem(46px);
+    padding-inline: rem(12px);
+    padding-block: rem(8px);
+    border: rem(1px) solid var(--color-border-gold);
+    border-radius: rem(100px);
+    background: var(--color-background-dark);
+  }
+
+  .actionLabel {
+    display: inline;
+    @include home-wishlist-bookings-label;
+    color: var(--color-text-light);
+    white-space: nowrap;
+  }
+
+  .iconWrap {
+    inline-size: rem(24px);
+    block-size: rem(24px);
+  }
+}

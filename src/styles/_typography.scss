@@ -1,0 +1,402 @@
+@use "_mixins" as *;
+@use "_media" as *;
+
+@mixin hotel-title {
+  @include defaultTypoStyles(
+    44,
+    0,
+    53,
+    500,
+    var(--font-family-bauhaus-std-medium)
+  );
+
+  @include media(">=tablet") {
+    @include defaultTypoStyles(
+      44,
+      0,
+      53,
+      500,
+      var(--font-family-bauhaus-std-medium)
+    );
+  }
+}
+
+// Home Feature Typography
+@mixin home-wishlist-bookings-label {
+  @include defaultTypoStyles(16, 0, 20, 500, var(--font-family-poppins-medium));
+
+  @include media(">=tablet") {
+    @include defaultTypoStyles(
+      16,
+      0,
+      20,
+      500,
+      var(--font-family-poppins-medium)
+    );
+  }
+}
+
+@mixin banner-info-title {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+
+  @include media(">tablet") {
+    @include defaultTypoStyles(20, 0, 30, 500, var(--font-family-poppins-medium));
+  }
+}
+
+@mixin tab-label-title {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+
+  @include media(">tablet") {
+    @include defaultTypoStyles(14, 0, 21, 400, var(--font-family-poppins-regular));
+  }
+}
+
+@mixin tab-label-title {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+
+  @include media(">tablet") {
+    @include defaultTypoStyles(14, 0, 21, 400, var(--font-family-poppins-regular));
+  }
+}
+
+@mixin chip-title {
+  @include defaultTypoStyles(10, 0, 15, 500, var(--font-family-poppins-medium));
+
+  @include media(">tablet") {
+    @include defaultTypoStyles(12, 0, 18, 500, var(--font-family-poppins-medium));
+  }
+}
+
+@mixin search-field-label {
+  @include defaultTypoStyles(
+    12,
+    0,
+    18,
+    400,
+    var(--font-family-poppins-regular)
+  );
+
+  @include media(">=tablet") {
+    @include defaultTypoStyles(
+      12,
+      0,
+      18,
+      400,
+      var(--font-family-poppins-regular)
+    );
+  }
+}
+
+@mixin search-btn-title {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+
+  @include media(">tablet") {
+    @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+  }
+}
+
+@mixin recent-search-title {
+  // Mobile: Figma 455:13133 — Mobile/Body/L (Semi Bold), 14px/21px
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+
+  @include media(">tablet") {
+    @include defaultTypoStyles(10, 0, 15, 500, var(--font-family-poppins-medium));
+  }
+}
+
+@mixin recent-card-title {
+  @include defaultTypoStyles(
+    12,
+    0,
+    18,
+    600,
+    var(--font-family-poppins-semibold)
+  );
+
+  @include media(">=tablet") {
+    @include defaultTypoStyles(
+      12,
+      0,
+      18,
+      600,
+      var(--font-family-poppins-semibold)
+    );
+  }
+}
+
+@mixin recent-card-subtitle {
+  @include defaultTypoStyles(
+    12,
+    0,
+    18,
+    400,
+    var(--font-family-poppins-regular)
+  );
+
+  @include media(">=tablet") {
+    @include defaultTypoStyles(
+      12,
+      0,
+      18,
+      400,
+      var(--font-family-poppins-regular)
+    );
+  }
+}
+
+@mixin powered-by-vernost {
+  @include defaultTypoStyles(
+    12,
+    0,
+    18,
+    400,
+    var(--font-family-poppins-regular)
+  );
+
+  @include media(">=tablet") {
+    @include defaultTypoStyles(
+      12,
+      0,
+      18,
+      400,
+      var(--font-family-poppins-regular)
+    );
+  }
+}
+
+@mixin disclaimer-text {
+  @include defaultTypoStyles(
+    10,
+    0,
+    15,
+    400,
+    var(--font-family-poppins-regular)
+  );
+
+  @include media(">=tablet") {
+    @include defaultTypoStyles(
+      12,
+      0,
+      18,
+      400,
+      var(--font-family-poppins-regular)
+    );
+  }
+}
+
+@mixin book-with-us-title {
+  @include defaultTypoStyles(
+    16,
+    0,
+    19,
+    500,
+    var(--font-family-bauhaus-std-medium)
+  );
+
+  @include media(">=tablet") {
+    @include defaultTypoStyles(
+      24,
+      0,
+      29,
+      500,
+      var(--font-family-bauhaus-std-medium)
+    );
+  }
+}
+
+@mixin benefit-title {
+  @include defaultTypoStyles(
+    14,
+    -0.6px,
+    21,
+    500,
+    var(--font-family-poppins-medium)
+  );
+
+  @include media(">=tablet") {
+    @include defaultTypoStyles(
+      14,
+      -0.6px,
+      21,
+      500,
+      var(--font-family-poppins-medium)
+    );
+  }
+}
+
+@mixin benefit-description {
+  @include defaultTypoStyles(
+    12,
+    0,
+    18,
+    400,
+    var(--font-family-poppins-regular)
+  );
+
+  @include media(">=tablet") {
+    @include defaultTypoStyles(
+      12,
+      0,
+      18,
+      400,
+      var(--font-family-poppins-regular)
+    );
+  }
+}
+
+@mixin featured-card-title {
+  @include defaultTypoStyles(
+    20,
+    0,
+    24,
+    500,
+    var(--font-family-bauhaus-std-medium)
+  );
+
+  @include media(">=tablet") {
+    @include defaultTypoStyles(
+      24,
+      0,
+      29,
+      500,
+      var(--font-family-bauhaus-std-medium)
+    );
+  }
+}
+
+@mixin handpicked-section-title {
+  @include defaultTypoStyles(20, 0, 24, 500, var(--font-family-bauhaus-std-medium));
+
+  @include media(">tablet") {
+    @include defaultTypoStyles(24, 0, 29, 500, var(--font-family-bauhaus-std-medium));
+  }
+}
+
+@mixin hotel-card-name {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin hotel-card-rating-score {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin hotel-card-rating-reviews {
+  @include defaultTypoStyles(10, 0, 15, 400, var(--font-family-poppins-regular));
+
+  @include media(">tablet") {
+    @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+  }
+}
+
+@mixin hotel-card-price-label {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin hotel-card-price {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+
+  @include media(">tablet") {
+    @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+  }
+}
+
+@mixin featured-on-card-label {
+  @include defaultTypoStyles(
+    14,
+    0,
+    21,
+    600,
+    var(--font-family-poppins-semibold)
+  );
+
+  @include media(">=tablet") {
+    @include defaultTypoStyles(
+      14,
+      0,
+      21,
+      400,
+      var(--font-family-poppins-regular)
+    );
+  }
+}
+
+@mixin tours-destination-name {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin tours-tag {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin blogs-section-title {
+  @include defaultTypoStyles(20, 0, 24, 500, var(--font-family-bauhaus-std-medium));
+
+  @include media(">tablet") {
+    @include defaultTypoStyles(24, 0, 29, 500, var(--font-family-bauhaus-std-medium));
+  }
+}
+
+@mixin blog-card-title {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+// ── PaxSelector ───────────────────────────────────────────────────────────────
+
+@mixin pax-counter-value {
+  @include defaultTypoStyles(16, 0, 24, 500, var(--font-family-poppins-medium));
+}
+
+@mixin pax-room-title {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin pax-label-sub {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin pax-add-room {
+  @include defaultTypoStyles(14, 0, 20, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin pax-action-btn {
+  @include defaultTypoStyles(16, 0, 24, 600, var(--font-family-poppins-semibold));
+}
+
+// ── DateRangePicker ───────────────────────────────────────────────────────────
+
+@mixin date-month-label {
+  @include defaultTypoStyles(16, 0, 24, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin date-weekday-label {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin date-day-num {
+  @include defaultTypoStyles(14, 0, 21, 400, var(--font-family-poppins));
+}
+
+@mixin date-month-label-mweb {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins));
+}
+
+@mixin date-weekday-mweb {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin date-header-label {
+  @include defaultTypoStyles(10, 0, 15, 400, var(--font-family-poppins));
+}
+
+@mixin date-header-date {
+  @include defaultTypoStyles(10, 0, 15, 500, var(--font-family-poppins-medium));
+}
+
+@mixin date-range-emphasis {
+  font-weight: 600;
+}
+
+@mixin date-range-day-mweb {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins));
+}

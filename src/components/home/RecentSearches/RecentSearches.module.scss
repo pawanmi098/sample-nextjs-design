@@ -1,0 +1,181 @@
+@use '../../../styles/_shared' as *;
+
+// =============================================================================
+// BASE — MOBILE FIRST
+// Figma node: 455:13132 (425px mweb frame)
+// Breakpoint: >tablet (769px+) → iPad Air & iPad Pro → desktop view
+//             ≤tablet (768px)  → iPhone & iPad Mini → mobile view
+// =============================================================================
+
+.recentSearches {
+  width: 100%;
+  margin-top: rem(20px);
+}
+
+.heading {
+  margin: 0 0 rem(22px);
+  color: var(--color-text-light);
+  @include recent-search-title;
+}
+
+// Mobile: single-row horizontal scroll — cards never wrap, excess scrolls
+// Figma Frame 2147226675: HORIZONTAL, gap 16px, width FILL
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: rem(16px);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// Figma: 56px tall, border-radius 8px, border var(--border-tertiary), no shadow
+.bookingCard,
+.searchCard {
+  display: flex;
+  height: rem(56px);
+  flex-shrink: 0;
+  align-items: center;
+  border: 1px solid var(--border-tertiary);
+  border-radius: rem(8px);
+  background: var(--color-background-dark);
+  color: var(--color-text-light);
+  cursor: pointer;
+  text-align: left;
+}
+
+.bookingCard:hover,
+.bookingCard:focus-visible,
+.searchCard:hover,
+.searchCard:focus-visible {
+  border-color: var(--color-border-gold);
+  outline: none;
+}
+
+// Figma 455:13135: padding 8px 12px, gap 12px, space-between for icon
+.bookingCard {
+  justify-content: space-between;
+  gap: rem(12px);
+  padding: rem(8px) rem(12px);
+}
+
+// Figma 455:13167: padding 8px 12px, gap 12px
+.searchCard {
+  gap: rem(12px);
+  padding: rem(8px) rem(12px);
+}
+
+.bookingCopy,
+.searchCopy {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: rem(4px);
+}
+
+.cardTitle,
+.cardSubtitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cardTitle {
+  color: var(--color-text-light);
+  @include recent-card-title;
+}
+
+.cardSubtitle {
+  color: var(--color-text-light);
+  @include recent-card-subtitle;
+}
+
+// Mobile: show mweb subtitle ("Find your stay details"), hide desktop one
+.mwebSubtitle {
+  display: block;
+}
+
+.desktopSubtitle {
+  display: none;
+}
+
+// Figma 455:13139: 40×40 icon area, right-aligned in booking card
+.bookingIcon {
+  display: inline-flex;
+  width: rem(40px);
+  height: rem(40px);
+  flex: 0 0 rem(40px);
+  align-items: center;
+  justify-content: center;
+}
+
+.bookingIcon img {
+  width: rem(40px);
+  height: rem(40px);
+  object-fit: contain;
+}
+
+// Figma 455:13168: 20×20, white fill = var(--color-text-primary)
+.locationIcon {
+  width: rem(20px);
+  height: rem(20px);
+  flex: 0 0 rem(20px);
+  color: var(--color-text-primary);
+}
+
+// =============================================================================
+// DESKTOP — >tablet (769px+)
+// iPad Mini (768px) → mobile | iPad Air (820px) & iPad Pro (1024px) → desktop
+// =============================================================================
+
+@include media(">tablet") {
+  .recentSearches {
+    margin-top: rem(34px);
+  }
+
+  .heading {
+    margin: 0 0 rem(16px);
+  }
+
+  // Figma 228:19990: booking card 236px, search cards 218px each, gap 20px
+  .cards {
+    display: grid;
+    grid-template-columns: rem(236px) repeat(3, rem(218px));
+    gap: rem(20px);
+    overflow-x: visible;
+  }
+
+  .bookingCard,
+  .searchCard {
+    height: rem(66px);
+    flex-shrink: initial;
+    border-color: var(--color-border-secondary);
+    border-radius: rem(12px);
+    box-shadow: 0 0 rem(24px) rgba(76, 93, 158, 0.12);
+  }
+
+  .bookingCard {
+    padding: rem(10px) rem(16px);
+    gap: rem(16px);
+  }
+
+  .searchCard {
+    padding: rem(10px) rem(16px);
+    gap: rem(12px);
+  }
+
+  // Desktop: show "Manage your hotel stays", hide mweb subtitle
+  .mwebSubtitle {
+    display: none;
+  }
+
+  .desktopSubtitle {
+    display: block;
+  }
+}

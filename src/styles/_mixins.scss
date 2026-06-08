@@ -1,0 +1,55 @@
+@use 'sass:math';
+
+$font-family-poppins-semibold: 'Poppins-SemiBold';
+$font-family-poppins-medium: 'Poppins-Medium';
+$font-family-poppins-regular: 'Poppins-Regular';
+$font-family-poppins-light: 'Poppins-Light';
+$font-family-bauhaus-std-medium: 'BauhausStd-Medium';
+$font-family-bauhaus-std: 'Bauhaus Std';
+$font-family-bauhaus-pro: 'Bauhaus Pro';
+
+:root {
+  --font-family-poppins-semibold: #{$font-family-poppins-semibold};
+  --font-family-poppins-medium: #{$font-family-poppins-medium};
+  --font-family-poppins-regular: #{$font-family-poppins-regular};
+  --font-family-poppins-light: #{$font-family-poppins-light};
+  --font-family-bauhaus-std-medium: #{$font-family-bauhaus-std-medium};
+  --font-family-bauhaus-pro: #{$font-family-bauhaus-pro};
+  --font-family-bauhaus-std: #{$font-family-bauhaus-std};
+}
+
+//---------- REM Varience -----
+$baseFontSize: 16;
+
+@function rem($pixels, $context: $baseFontSize) {
+  @if (math.is-unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (math.is-unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return calc($pixels / $context) * 1rem;
+}
+
+$font-family-default: var(--font-family-poppins-regular);
+
+@mixin defaultTypoStyles(
+  $size,
+  $space,
+  $height,
+  $weight: normal,
+  $family: $font-family-default
+) {
+  font-family: $family;
+  font-size: rem($size);
+  font-weight: $weight;
+  line-height: rem($height);
+
+  @if ($space==normal) {
+    letter-spacing: normal;
+  } @else {
+    letter-spacing: rem($space);
+  }
+}

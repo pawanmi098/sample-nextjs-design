@@ -1,0 +1,336 @@
+@use '../../../styles/_shared' as *;
+
+// =============================================================================
+// SHARED — Counter, pax rows, child age chips (used by both mweb and web)
+// =============================================================================
+
+// ─── Counter ─────────────────────────────────────────────────────────────────
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: rem(16px);
+  flex-shrink: 0;
+}
+
+.counterBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(24px);
+  height: rem(24px);
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  padding: rem(4px);
+  transition: opacity 0.15s;
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+}
+
+// Minus button: gold border, transparent bg, gold icon
+.counterBtnMinus {
+  border: rem(1px) solid var(--color-border-gold);
+  background: transparent;
+  color: var(--color-text-accent);
+}
+
+// Plus button: gold fill, white icon
+.counterBtnPlus {
+  background: var(--background-gold);
+  color: var(--color-text-primary);
+}
+
+.counterValue {
+  @include pax-counter-value;
+  color: var(--color-text-light);
+  min-width: rem(20px);
+  text-align: center;
+}
+
+// ─── Pax rows ────────────────────────────────────────────────────────────────
+
+.room {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+}
+
+.roomTitle {
+  margin: 0;
+  @include pax-room-title;
+  color: var(--color-text-light);
+}
+
+.paxRows {
+  display: flex;
+  flex-direction: column;
+  gap: rem(20px);
+}
+
+.paxRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: rem(12px);
+}
+
+.paxLabel {
+  flex: 1;
+  min-width: 0;
+}
+
+.paxLabelBold {
+  @include pax-room-title;
+  color: var(--color-text-light);
+}
+
+.paxLabelSub {
+  @include pax-label-sub;
+  color: var(--text-secondary);
+}
+
+// ─── Child age dropdown (Figma: VERTICAL gap=4, per-child row + info text) ────
+
+.childAgesSection {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4px);
+}
+
+// Row: "Child - N age" label (left) | select box (right)
+.childAgeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: rem(12px);
+  padding: rem(6px) 0;
+}
+
+.childAgeLabel {
+  @include pax-label-sub;
+  color: var(--color-text-light);
+}
+
+// Wrapper styled as Figma box: 70×32, bg=var(--bg-primary), radius=4
+.childAgeSelectWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: rem(70px);
+  height: rem(32px);
+  padding: rem(4px) rem(8px);
+  background: var(--bg-primary);
+  border-radius: rem(4px);
+  flex-shrink: 0;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+// Decorative current-value display (visible; select sits on top as invisible overlay)
+.childAgeDisplayValue {
+  @include pax-label-sub;
+  color: var(--color-text-light);
+  pointer-events: none;
+  user-select: none;
+}
+
+// Transparent native select covers the entire wrapper — click anywhere to open
+.childAgeSelect {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border: 0;
+  cursor: pointer;
+
+  option {
+    background: var(--color-background-dark);
+    color: var(--color-text-light);
+  }
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: var(--color-text-light);
+  pointer-events: none;
+}
+
+.childAgeInfo {
+  margin: rem(8px) 0 0;
+  @include pax-label-sub;
+  color: var(--text-secondary);
+}
+
+// ─── Add More Room ────────────────────────────────────────────────────────────
+
+.addRoom {
+  align-self: flex-start;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  @include pax-add-room;
+  color: var(--color-text-accent);
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+// =============================================================================
+// MWEB — full-screen modal
+// Figma node: 455:14951 (360px wide, full height)
+// =============================================================================
+
+.mwebOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--color-background-dark);
+  display: flex;
+  flex-direction: column;
+}
+
+.mwebModal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-background-dark);
+}
+
+// Header: 56px, bg #0D0D0D, border-bottom #7A85A0, gap=12px, padding=16px
+.mwebHeader {
+  display: flex;
+  align-items: center;
+  gap: rem(12px);
+  flex-shrink: 0;
+  height: rem(56px);
+  padding: rem(16px);
+  border-bottom: rem(1px) solid var(--border-tertiary);
+  background: var(--color-background-dark);
+}
+
+.mwebClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: rem(24px);
+  height: rem(24px);
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--color-text-accent);
+  cursor: pointer;
+}
+
+// Title: 12px/400/Poppins, #D9D9D9-ish (using light)
+.mwebTitle {
+  @include pax-label-sub;
+  color: var(--color-text-light);
+}
+
+// Scrollable content area
+.mwebContent {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: rem(28px);
+  padding: rem(24px) rem(20px);
+}
+
+// Footer: 72px, bg #1D1D1D, padding 12px 20px, two buttons side by side
+.mwebFooter {
+  display: flex;
+  align-items: center;
+  gap: rem(16px);
+  flex-shrink: 0;
+  padding: rem(12px) rem(20px);
+  background: var(--background-dark);
+}
+
+// Cancel: border gold, text gold, 48px tall
+.cancelBtn {
+  flex: 1;
+  height: rem(48px);
+  border: rem(1px) solid var(--color-border-gold);
+  border-radius: rem(8px);
+  background: transparent;
+  @include pax-action-btn;
+  color: var(--color-text-accent);
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(169, 125, 14, 0.08);
+  }
+}
+
+// Done: gold fill, light text, 48px tall
+.doneBtn {
+  flex: 1;
+  height: rem(48px);
+  border: 0;
+  border-radius: rem(8px);
+  background: var(--background-gold);
+  @include pax-action-btn;
+  color: var(--color-text-light);
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.92;
+  }
+}
+
+// =============================================================================
+// WEB — dropdown popover
+// Figma node: 163:76971 (402x305, bg #0D0D0D, border #7A859F, radius 8px)
+// =============================================================================
+
+.webPopover {
+  position: absolute;
+  z-index: 200;
+  width: rem(402px);
+  border: rem(1px) solid var(--color-border-secondary);
+  border-radius: rem(8px);
+  background: var(--color-background-dark);
+  box-shadow: 0 0 rem(24px) rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+}
+
+.webContent {
+  display: flex;
+  flex-direction: column;
+  gap: rem(20px);
+  padding: rem(20px) rem(24px);
+}
+
+.webDivider {
+  height: rem(1px);
+  background: var(--border-tertiary);
+  margin: 0 rem(24px);
+  flex-shrink: 0;
+}
+
+.webDoneBtn {
+  width: 100%;
+  padding: rem(14px) rem(60px);
+  border: 0;
+  background: transparent;
+  @include pax-add-room;
+  color: var(--color-text-accent);
+  cursor: pointer;
+  text-align: center;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}

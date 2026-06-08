@@ -1,0 +1,352 @@
+@use '../../../styles/_shared' as *;
+
+// =============================================================================
+// BASE — MOBILE FIRST
+// Figma node: 455:13081 (335px wide, mweb)
+// Breakpoint: >tablet (769px+) → iPad Air & iPad Pro get desktop view
+//             ≤tablet (768px)  → iPhone & iPad Mini get mobile view
+// =============================================================================
+
+.panel {
+  width: 100%;
+  padding: rem(16px);
+  border: 1px solid transparent;
+  border-radius: rem(12px);
+  // Mobile panel interior: #1D1D1D (charcoal) per Figma Frame 2147226823
+  background:
+    linear-gradient(var(--background-dark), var(--background-dark)) padding-box,
+    linear-gradient(176deg, var(--gradient-gold) 0%, var(--background-gradient-navy) 100%) border-box;
+  color: var(--color-text-light);
+}
+
+.formArea {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: rem(7px); // Figma Frame 2147226821: gap between tabs and fields
+  margin-top: rem(11px); // Figma Frame 2147226822: gap between InfoBanner and form
+}
+
+// -----------------------------------------------------------------------------
+// Tabs
+// -----------------------------------------------------------------------------
+
+.tabs {
+  display: flex;
+  min-height: rem(32px);
+  align-items: center;
+  gap: rem(8px);
+}
+
+.tab {
+  position: relative;
+  display: inline-flex;
+  min-height: rem(32px);
+  align-items: center;
+  gap: rem(8px);
+  color: var(--color-text-light);
+  cursor: pointer;
+}
+
+.tab input {
+  position: absolute;
+  width: rem(1px);
+  height: rem(1px);
+  margin: rem(-1px);
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+// Mobile radio: 16px ring, inner dot at inset 4px → 8px dot
+.radio {
+  position: relative;
+  width: rem(16px);
+  height: rem(16px);
+  flex: 0 0 rem(16px);
+  border: rem(2px) solid var(--color-border-gold);
+  border-radius: 50%;
+}
+
+.radio::after {
+  position: absolute;
+  inset: rem(4px);
+  border-radius: inherit;
+  background: var(--background-gold);
+  content: "";
+  opacity: 0;
+}
+
+.tab input:checked + .radio::after {
+  opacity: 1;
+}
+
+// Selected tab label turns gold on mobile
+.tab input:checked ~ .title {
+  color: var(--color-text-accent);
+}
+
+.title {
+  color: var(--color-text-light);
+  @include tab-label-title;
+}
+
+// Mobile chip: solid light-blue fill, no border — Figma: #EAF8FF bg, #00AEE5 text, 10px
+.chip {
+  display: inline-flex;
+  min-height: rem(20px);
+  align-items: center;
+  justify-content: center;
+  padding: rem(2px) rem(8px);
+  border: none;
+  border-radius: rem(12px);
+  background: var(--color-chip-bg);
+  color: var(--color-chip-text);
+  @include chip-title;
+}
+
+// -----------------------------------------------------------------------------
+// Search box — flex column on mobile, grid on desktop
+// -----------------------------------------------------------------------------
+
+.searchBox {
+  display: flex;
+  flex-direction: column;
+  gap: rem(19px); // Figma: gap between content block and search button
+}
+
+// -----------------------------------------------------------------------------
+// Fields — stacked vertically on mobile, horizontal grid on desktop
+// -----------------------------------------------------------------------------
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: rem(9px); // Figma Frame 2147226818: gap between individual fields
+}
+
+// Mobile field: horizontal layout (icon + content + tag)
+// Figma: padding 12px, border 1px #7A85A0, border-radius 8px, bg #0D0D0D
+.field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(10px);
+  width: 100%;
+  min-width: 0;
+  padding: rem(12px);
+  border: 1px solid var(--border-tertiary);
+  border-radius: rem(8px);
+  background: var(--color-background-dark);
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.field:hover,
+.field:focus-visible,
+.fieldActive {
+  background: rgba(255, 255, 255, 0.04);
+  outline: none;
+}
+
+// 24×24 gold icon — visible on mobile only
+.fieldIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 rem(24px);
+  width: rem(24px);
+  height: rem(24px);
+  color: var(--color-text-accent);
+}
+
+// Wraps label + value (stacked)
+.fieldContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  gap: 0; // Figma: no gap between label and value on mobile
+}
+
+// Optional right-side pill (e.g. "Near Me") — visible on mobile only
+.fieldTag {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.fieldLabel {
+  overflow: hidden;
+  color: var(--color-text-light);
+  @include search-field-label;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Mobile field value: 12px/600 — Figma: Poppins SemiBold 12px
+.fieldValue,
+.fieldValueMuted {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-family-poppins-semibold);
+  font-size: rem(12px);
+  font-weight: 600;
+  line-height: rem(18px);
+}
+
+.fieldValue {
+  color: var(--color-text-light);
+}
+
+.fieldValueMuted {
+  color: var(--text-secondary);
+}
+
+// Mobile search button: full-width, 48px tall, gold, border-radius 8px
+// Figma Frame 2147226819: fill #A97D0E, h=48px, border-radius 8px
+.searchButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(9px);
+  width: 100%;
+  min-height: rem(48px);
+  padding: 0;
+  border: 0;
+  border-radius: rem(8px);
+  background: var(--background-gold);
+  color: var(--color-text-light);
+  cursor: pointer;
+  @include search-btn-title;
+}
+
+// =============================================================================
+// DESKTOP — >tablet (769px+)
+// iPad Mini (768px) → mobile | iPad Air (820px) & iPad Pro (1024px) → desktop
+// =============================================================================
+
+@include media(">tablet") {
+  .panel {
+    min-height: rem(224px);
+    padding: rem(20px) rem(16px) rem(16px);
+    // Desktop panel interior: #0D0D0D (black) per original design
+    background:
+      linear-gradient(var(--color-background-dark), var(--color-background-dark)) padding-box,
+      linear-gradient(176deg, var(--gradient-gold) 0%, var(--background-gradient-navy) 100%) border-box;
+  }
+
+  .formArea {
+    gap: rem(8px);
+    margin-top: rem(16px);
+  }
+
+  .tabs {
+    gap: 0;
+  }
+
+  .tab {
+    gap: rem(8px);
+    margin-right: rem(32px);
+  }
+
+  // Desktop: selected tab label stays light (no gold tint)
+  .tab input:checked ~ .title {
+    color: var(--color-text-light);
+  }
+
+  // Desktop radio: 23px (original design)
+  .radio {
+    width: rem(23px);
+    height: rem(23px);
+    flex: 0 0 rem(23px);
+  }
+
+  // Desktop chip: dark bg with light-blue border (original design)
+  .chip {
+    min-height: rem(24px);
+    padding: rem(3px) rem(8px);
+    border: 1px solid var(--color-border-light-blue);
+    background: var(--color-background-dark);
+    color: var(--color-text-info);
+  }
+
+  // Desktop searchBox: 2-column grid (fields | button)
+  .searchBox {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) rem(220px);
+    min-height: rem(102px);
+    overflow: hidden;
+    border: 1px solid var(--color-border-secondary);
+    border-radius: rem(12px);
+    background: var(--background-dark);
+    box-shadow: 0 rem(2px) rem(40px) rgba(0, 0, 0, 0.07);
+    gap: 0;
+  }
+
+  // Desktop fields: 4-column horizontal grid
+  .fields {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr 1fr 1.3fr;
+    gap: 0;
+  }
+
+  // Desktop field: vertical layout, no border/radius (contained by searchBox)
+  .field {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    width: auto;
+    padding: rem(20px) rem(24px);
+    border: 0;
+    border-right: 1px solid var(--color-border-secondary);
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .field:hover,
+  .field:focus-visible,
+  .fieldActive {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  // Hide mobile-only elements on desktop
+  .fieldIcon {
+    display: none;
+  }
+
+  .fieldTag {
+    display: none;
+  }
+
+  .fieldContent {
+    flex: none;
+    width: 100%;
+    gap: rem(10px); // Desktop: 10px gap between label and value
+  }
+
+  // Desktop field value: 16px/500 (original design)
+  .fieldValue,
+  .fieldValueMuted {
+    font-family: var(--font-family-poppins-medium);
+    font-size: rem(16px);
+    font-weight: 500;
+    line-height: rem(24px);
+    white-space: nowrap;
+  }
+
+  // Desktop search button: sized by grid column, with margin
+  .searchButton {
+    display: inline-flex;
+    width: auto;
+    min-height: 0;
+    gap: rem(8px);
+    margin: rem(22px) rem(20px);
+    border-radius: rem(8px);
+    padding: 0;
+  }
+}

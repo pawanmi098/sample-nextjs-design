@@ -1,0 +1,14 @@
+@use '../../../styles/_shared' as *;
+
+.infoBanner {
+
+}
+
+.title {
+    @include banner-info-title;
+    color: var(--color-text-light);
+
+    span {
+        color: var(--color-text-accent);
+    }
+}

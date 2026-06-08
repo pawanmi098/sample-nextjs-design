@@ -1,0 +1,107 @@
+@use '../../../styles/_shared' as *;
+
+// =============================================================================
+// BASE — MOBILE FIRST
+// Figma node: 455:13083 (Frame 1321318842, 335×188)
+// Breakpoint: >tablet (769px+) → iPad Air & iPad Pro → desktop view
+//             ≤tablet (768px)  → iPhone & iPad Mini → mobile view
+// =============================================================================
+
+// Figma: VERTICAL, padding 4px, border-radius 12px, border 1px #7A85A0
+.carousel {
+  width: 100%;
+  margin-top: rem(20px);
+  padding: rem(4px);
+  border: 1px solid var(--border-tertiary);
+  border-radius: rem(12px);
+  background: var(--color-background-dark);
+}
+
+// Figma 455:13084: 327×180, border-radius 8px, IMAGE fill
+.imageWrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: rem(8px);
+  aspect-ratio: 327 / 180;
+  background: var(--background-dark);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// Figma 455:13085: 52×8, HORIZONTAL gap 4px — overlaid at bottom of image
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: rem(4px);
+}
+
+.innerStepper {
+  position: absolute;
+  bottom: rem(10px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// Figma dots — mobile: height 8px, radius 6px
+// Active: 28×8, fill #AFE4FF = var(--color-text-info)
+// Inactive: 8×8, fill #7A85A0 = var(--border-tertiary)
+.step,
+.activeStep {
+  border: none;
+  cursor: pointer;
+  height: rem(8px);
+  border-radius: rem(6px);
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.step {
+  width: rem(8px);
+  background: var(--border-tertiary);
+}
+
+.activeStep {
+  width: rem(28px);
+  background: var(--color-text-info);
+}
+
+// =============================================================================
+// DESKTOP — >tablet (769px+)
+// iPad Mini (768px) → mobile | iPad Air (820px) & iPad Pro (1024px) → desktop
+// =============================================================================
+
+@include media(">tablet") {
+  .carousel {
+    margin-top: rem(65px);
+    min-height: rem(320px);
+    padding: rem(20px);
+    border-color: var(--color-border-secondary);
+    border-radius: rem(20px);
+    box-shadow: 0 0 rem(24px) rgba(76, 93, 158, 0.12);
+  }
+
+  .imageWrap {
+    border-radius: rem(12px);
+    aspect-ratio: 1112 / 276;
+  }
+
+  .step,
+  .activeStep {
+    height: rem(12px);
+  }
+
+  .step {
+    width: rem(12px);
+    background: var(--color-border-secondary);
+  }
+
+  .activeStep {
+    width: rem(40px);
+    background: var(--color-text-light);
+  }
+}

@@ -1,0 +1,573 @@
+@use '../../../styles/_shared' as *;
+
+// =============================================================================
+// WEB — absolute popover, two-month side-by-side
+// Figma node: 163:75114 (720×312px)
+// Two Calendar frames: each 360×312, padding 24px T/B 30px L/R
+// =============================================================================
+
+.webPopover {
+  position: absolute;
+  z-index: 200;
+  border: rem(1px) solid var(--color-border-secondary);
+  border-radius: rem(12px);
+  background: var(--color-background-dark);
+  box-shadow: 0 rem(8px) rem(40px) rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+// ─── DayPicker layout inside web popover ─────────────────────────────────────
+
+.webCalendar {
+  // rdp root reset
+  :global(.rdp) {
+    margin: 0;
+  }
+
+  // Two months side by side
+  :global(.rdp-months) {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+  }
+
+  :global(.rdp-month) {
+    padding: rem(24px) rem(30px);
+    background: var(--color-background-dark);
+
+    &:first-child {
+      border-right: rem(1px) solid var(--color-border-secondary);
+    }
+  }
+
+  // Month header: CSS grid [prev | title | next] for proper center alignment
+  :global(.rdp-caption) {
+    display: grid;
+    grid-template-columns: rem(30px) 1fr rem(30px);
+    align-items: center;
+    gap: rem(8px);
+    margin-bottom: rem(8px);
+    height: rem(30px);
+  }
+
+  :global(.rdp-nav) {
+    display: contents; // let buttons be direct grid items of .rdp-caption
+  }
+
+  :global(.rdp-caption_label) {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: center;
+    @include date-month-label;
+    color: var(--color-text-light);
+    white-space: nowrap;
+  }
+
+  // Prev button: gold circle (Figma: #a97d0e fill, 30×30 r=70)
+  :global(.rdp-nav_button_previous) {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(30px);
+    height: rem(30px);
+    flex-shrink: 0;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--background-gold); // #a97d0e
+    color: var(--color-text-primary); // white icon
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled) {
+      opacity: 0.88;
+    }
+  }
+
+  // Next button: white circle (Figma: #ffffff fill, 30×30 r=70)
+  :global(.rdp-nav_button_next) {
+    grid-column: 3;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(30px);
+    height: rem(30px);
+    flex-shrink: 0;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--color-text-primary); // white
+    color: var(--color-background-dark); // dark icon
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled) {
+      opacity: 0.88;
+    }
+  }
+
+  // Calendar table
+  :global(.rdp-table) {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0;
+  }
+
+  // Day-of-week header cells (Figma: 42×30, Poppins SemiBold 14px #808080)
+  :global(.rdp-head_cell) {
+    width: rem(42px);
+    height: rem(30px);
+    padding: 0;
+    @include date-weekday-label;
+    color: #808080;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  // Date cells (Figma: 42×30px)
+  :global(.rdp-cell) {
+    width: rem(42px);
+    height: rem(30px);
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+  }
+
+  // Day button (Figma: 30×30 circle, Poppins Regular 14px #efefef)
+  :global(.rdp-day) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(30px);
+    height: rem(30px);
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--color-text-light); // #efefef
+    @include date-day-num;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    transition: background 0.1s;
+
+    &:hover:not(:disabled):not(:global(.rdp-day_selected)):not(:global(.rdp-day_range_middle)) {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    &:focus-visible {
+      outline: rem(2px) solid var(--color-text-accent);
+      outline-offset: rem(2px);
+    }
+  }
+
+  // Outside-month dates (Figma: #25304b — dimmed navy)
+  :global(.rdp-day_outside) {
+    color: var(--bg-primary);
+    opacity: 1;
+  }
+
+  // Disabled (past dates)
+  :global(.rdp-day_disabled) {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  // ─── Range middle: full-width navy background via cell ::before ─────────────
+  // (Figma: Frame 1576, fill #25304b, 42×28, text #efefef SemiBold 14px)
+
+  :global(.rdp-cell:has(.rdp-day_range_middle)) {
+    &::before {
+      content: '';
+      position: absolute;
+      inset: rem(1px) 0;
+      background: var(--bg-primary); // #25304b
+      z-index: 0;
+      pointer-events: none;
+    }
+  }
+
+  :global(.rdp-day_range_middle) {
+    color: var(--color-text-light);
+    @include date-range-emphasis;
+    background: transparent; // cell ::before handles bg
+  }
+
+  // ─── Range start: right-half navy + white circle ────────────────────────────
+  // (Figma: right-half #25304b, circle #efefef r=60, text #0d0d0d SemiBold)
+
+  :global(.rdp-cell:has(.rdp-day_range_start):not(:has(.rdp-day_range_end))) {
+    &::before {
+      content: '';
+      position: absolute;
+      top: rem(1px);
+      bottom: rem(1px);
+      left: 50%;
+      right: 0;
+      background: var(--bg-primary); // #25304b
+      z-index: 0;
+      pointer-events: none;
+    }
+  }
+
+  // ─── Range end: left-half navy + white circle ───────────────────────────────
+
+  :global(.rdp-cell:has(.rdp-day_range_end):not(:has(.rdp-day_range_start))) {
+    &::before {
+      content: '';
+      position: absolute;
+      top: rem(1px);
+      bottom: rem(1px);
+      right: 50%;
+      left: 0;
+      background: var(--bg-primary); // #25304b
+      z-index: 0;
+      pointer-events: none;
+    }
+  }
+
+  // ─── Selected circle (start / end) ─────────────────────────────────────────
+  // (Figma: Frame 1577 — #efefef fill, r=60, text #0d0d0d SemiBold 14px)
+
+  :global(.rdp-day_selected) {
+    background: var(--color-text-light) !important; // #efefef circle
+    color: var(--color-background-dark) !important; // #0d0d0d text
+    @include date-range-emphasis;
+    border-radius: 50%;
+    z-index: 2;
+  }
+}
+
+// ─── Web footer (Done button) ─────────────────────────────────────────────────
+
+.webFooter {
+  background: var(--color-background-dark);
+}
+
+.webDivider {
+  height: rem(1px);
+  background: var(--color-border-secondary);
+  margin: 0;
+}
+
+.webDoneBtn {
+  display: block;
+  width: 100%;
+  padding: rem(12px) 0;
+  border: 0;
+  background: transparent;
+  @include pax-add-room;
+  color: var(--color-text-accent); // gold
+  cursor: pointer;
+  text-align: center;
+
+  &:hover:not(:disabled) {
+    opacity: 0.85;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+// =============================================================================
+// MWEB — full-screen modal
+// Figma node: 455:14647 (360×742px)
+// =============================================================================
+
+.mwebOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-background-dark);
+}
+
+.mwebModal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-background-dark);
+}
+
+// Header (Figma: 360×66, border-bottom stroke)
+// "Check - In & Check - out" label + date, no close button (Figma: close icon is hidden)
+// paddingTop=12 (header frame) + paddingBottom=12, paddingLeft=20, paddingRight=12 ("Labe, Date & Icon Button")
+.mwebHeader {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: rem(66px);
+  padding: rem(12px) rem(12px) rem(12px) rem(20px);
+  border-bottom: rem(1px) solid var(--border-tertiary);
+  background: var(--color-background-dark);
+}
+
+.mwebHeaderInfo {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8px);
+  min-width: 0;
+}
+
+// (Figma: Poppins 10px 400 #efefef)
+.mwebHeaderLabel {
+  @include date-header-label;
+  color: var(--color-text-light);
+}
+
+// (Figma: Poppins 10px 500 #efefef)
+.mwebHeaderDate {
+  @include date-header-date;
+  color: var(--color-text-light);
+}
+
+// Sticky weekday header (Figma: 360×48, 7 × 48px cells, Poppins 12px 600 #efefef)
+// paddingLeft=12, paddingRight=12 to align cells with 336px calendar grid
+// No border-bottom (Figma "Days of the week" has no stroke)
+.mwebWeekdays {
+  display: flex;
+  flex-shrink: 0;
+  padding: 0 rem(12px);
+  background: var(--color-background-dark);
+}
+
+.mwebWeekday {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: rem(48px);
+  @include date-weekday-mweb;
+  color: var(--color-text-light);
+}
+
+// Scrollable calendar area
+.mwebCalendarScroll {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+// ─── DayPicker layout inside mweb ─────────────────────────────────────────────
+
+.mwebCalendar {
+  :global(.rdp) {
+    margin: 0;
+  }
+
+  // Months: stacked vertically
+  :global(.rdp-months) {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  // Figma: Month frames are 336px inside 360px modal → 12px side padding each
+  :global(.rdp-month) {
+    width: 100%;
+    padding: 0 rem(12px);
+  }
+
+  // Month caption: "March 2023" left-aligned (Figma: Poppins 12px 400 #efefef)
+  // Hide nav — months are scrolled, not paginated
+  :global(.rdp-caption) {
+    display: flex;
+    align-items: center;
+    height: rem(48px);
+    padding: rem(16px) rem(24px) rem(12px);
+  }
+
+  :global(.rdp-nav) {
+    display: none; // navigation hidden on mweb
+  }
+
+  :global(.rdp-caption_label) {
+    @include date-month-label-mweb;
+    color: var(--color-text-light);
+  }
+
+  // Hide per-month head rows — we render our own sticky weekday header above
+  :global(.rdp-head) {
+    display: none;
+  }
+
+  :global(.rdp-table) {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  // Date cells (Figma: 48×48px, 7 columns = 336px, 12px padding each side)
+  :global(.rdp-cell) {
+    width: rem(48px);
+    height: rem(48px);
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+  }
+
+  // Day button (Figma: 40×40 container circle, Poppins 14px 400 #efefef)
+  :global(.rdp-day) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(40px);
+    height: rem(40px);
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--color-text-light);
+    @include date-day-num;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    transition: background 0.1s;
+
+    &:hover:not(:disabled):not(:global(.rdp-day_selected)):not(:global(.rdp-day_range_middle)) {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    &:focus-visible {
+      outline: rem(2px) solid var(--color-text-accent);
+      outline-offset: rem(2px);
+    }
+  }
+
+  :global(.rdp-day_outside) {
+    color: var(--bg-primary);
+    opacity: 1;
+  }
+
+  :global(.rdp-day_disabled) {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  // ─── Range middle: full-width navy via cell ::before ─────────────────────────
+  // (Figma: Rectangle fill #25304b, full cell width, text #efefef 12px 600)
+
+  :global(.rdp-cell:has(.rdp-day_range_middle)) {
+    &::before {
+      content: '';
+      position: absolute;
+      inset: rem(4px) 0;
+      background: var(--bg-primary); // #25304b
+      z-index: 0;
+      pointer-events: none;
+    }
+  }
+
+  :global(.rdp-day_range_middle) {
+    color: var(--color-text-light);
+    @include date-range-day-mweb;
+    background: transparent;
+  }
+
+  // ─── Range start: right-half navy + white circle ──────────────────────────────
+  // (Figma: Range highlight start #25304b right, circle #efefef, text #25304b)
+
+  :global(.rdp-cell:has(.rdp-day_range_start):not(:has(.rdp-day_range_end))) {
+    &::before {
+      content: '';
+      position: absolute;
+      top: rem(4px);
+      bottom: rem(4px);
+      left: 50%;
+      right: 0;
+      background: var(--bg-primary);
+      z-index: 0;
+      pointer-events: none;
+    }
+  }
+
+  // ─── Range end: left-half navy + white circle ─────────────────────────────────
+
+  :global(.rdp-cell:has(.rdp-day_range_end):not(:has(.rdp-day_range_start))) {
+    &::before {
+      content: '';
+      position: absolute;
+      top: rem(4px);
+      bottom: rem(4px);
+      right: 50%;
+      left: 0;
+      background: var(--bg-primary);
+      z-index: 0;
+      pointer-events: none;
+    }
+  }
+
+  // ─── Selected circle (start / end) ───────────────────────────────────────────
+  // (Figma: container #efefef fill r=100, text #25304b 12px 600)
+
+  :global(.rdp-day_selected) {
+    background: var(--color-text-light) !important; // #efefef
+    color: var(--bg-primary) !important; // #25304b
+    @include date-range-day-mweb;
+    border-radius: 50%;
+    z-index: 2;
+  }
+}
+
+// ─── mweb Footer ──────────────────────────────────────────────────────────────
+
+// Figma: Frame 2147223956 — pad=12,20,12,20, gap=12, fill=#1d1d1d
+.mwebFooter {
+  display: flex;
+  align-items: center;
+  gap: rem(12px);
+  flex-shrink: 0;
+  padding: rem(12px) rem(20px);
+  background: var(--background-dark);
+}
+
+.cancelBtn {
+  flex: 1;
+  height: rem(48px);
+  border: rem(1px) solid var(--color-border-gold);
+  border-radius: rem(8px);
+  background: transparent;
+  @include pax-action-btn;
+  color: var(--color-text-accent);
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(169, 125, 14, 0.08);
+  }
+}
+
+// Figma: Frame 2608509 — radius=4, fill=#a97d0e
+.doneBtn {
+  flex: 1;
+  height: rem(48px);
+  border: 0;
+  border-radius: rem(4px);
+  background: var(--background-gold);
+  @include pax-action-btn;
+  color: var(--color-text-light);
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    opacity: 0.92;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

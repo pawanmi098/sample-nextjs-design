@@ -1,0 +1,234 @@
+@use '../../../styles/_shared' as *;
+
+// BASE — MOBILE FIRST (≤768px)
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: rem(32px);
+  width: 100%;
+}
+
+// ─── TOURS SECTION ──────────────────────────────────────────────────────────
+
+.toursSection {
+  width: 100%;
+
+  @include media(">tablet") {
+    display: none;
+  }
+}
+
+// Scrollable rail — bleeds to edge on mobile (matches mweb Figma: 328px container, 3 cards 160px wide)
+.toursRail {
+  display: flex;
+  gap: rem(8px);
+  margin-right: rem(-16px);
+  padding-right: rem(16px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include media(">tablet") {
+    gap: rem(12px);
+    margin-right: 0;
+    padding-right: 0;
+    overflow-x: auto;
+    scroll-snap-type: none;
+    scroll-behavior: smooth;
+  }
+}
+
+// Tour destination card — 160×200px (mweb Figma)
+.tourCard {
+  position: relative;
+  flex: 0 0 rem(160px);
+  width: rem(160px);
+  height: rem(200px);
+  border-radius: rem(12px);
+  border: 1px solid var(--border-tertiary);
+  overflow: hidden;
+  scroll-snap-align: start;
+
+  @include media(">tablet") {
+    flex: 0 0 rem(220px);
+    width: rem(220px);
+    height: rem(275px);
+  }
+}
+
+.tourImage {
+  object-fit: cover;
+}
+
+// Gradient overlay from bottom (Figma: black → transparent from bottom to ~70% up)
+.tourGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.35) 45%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  border-radius: rem(12px);
+}
+
+// Text overlay at bottom
+.tourTextWrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: rem(2px);
+  padding: rem(12px);
+}
+
+.tourName {
+  @include tours-destination-name;
+  color: var(--color-text-light);
+}
+
+.tourTag {
+  @include tours-tag;
+  color: var(--color-text-primary);
+}
+
+// ─── BLOGS SECTION ──────────────────────────────────────────────────────────
+
+// Hidden on mobile — only shown on desktop (Figma: only web node provided)
+.blogsSection {
+  display: none;
+
+  @include media(">tablet") {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24px);
+    width: 100%;
+  }
+}
+
+// Header row: title left, arrows right (desktop only)
+.blogsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.blogsHeading {
+  margin: 0;
+  @include blogs-section-title;
+  color: var(--color-text-light);
+}
+
+// Nav arrows — hidden on mobile, shown on desktop (matches Figma: arrows only in web design)
+.blogsNavArrows {
+  display: none;
+
+  @include media(">tablet") {
+    display: flex;
+    align-items: center;
+    gap: rem(10px);
+    flex-shrink: 0;
+  }
+}
+
+.blogsArrowBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(24px);
+  height: rem(24px);
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-accent);
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-text-accent);
+    border-radius: rem(4px);
+  }
+}
+
+// Scrollable blog card rail
+.blogsRail {
+  display: flex;
+  gap: rem(12px);
+  margin-right: rem(-16px);
+  padding-right: rem(16px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include media(">tablet") {
+    gap: rem(14px);
+    margin-right: 0;
+    padding-right: 0;
+    overflow-x: auto;
+    scroll-snap-type: none;
+    scroll-behavior: smooth;
+  }
+}
+
+// Blog card — desktop: 276×259px (Figma web); mobile: proportionally scaled
+.blogCard {
+  flex: 0 0 rem(200px);
+  width: rem(200px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(10px);
+  scroll-snap-align: start;
+
+  @include media(">tablet") {
+    flex: 0 0 rem(276px);
+    width: rem(276px);
+    gap: rem(12px);
+  }
+}
+
+// Image wrap — explicit heights per Figma (image rect is 276×211 on desktop)
+// Using fixed height instead of aspect-ratio to avoid SCSS division ambiguity
+.blogImageWrap {
+  position: relative;
+  width: 100%;
+  height: rem(153px); // mobile: 200 × (211/276) ≈ 153px
+  border-radius: rem(8px);
+  overflow: hidden;
+  flex-shrink: 0;
+
+  @include media(">tablet") {
+    height: rem(211px); // desktop: exact Figma height
+  }
+}
+
+.blogImage {
+  object-fit: cover;
+}
+
+// Blog title — 12px Poppins Regular, white (Figma: 2 lines, #ffffff)
+.blogTitle {
+  margin: 0;
+  @include blog-card-title;
+  color: var(--color-text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

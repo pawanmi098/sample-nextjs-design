@@ -1,0 +1,134 @@
+@use 'sass:map';
+@use 'primitives' as *;
+@use 'theme-mixin' as mixins;
+
+// =============================================================================
+// THEME MAPS
+// =============================================================================
+
+$theme-dark: (
+  // Background Colors
+  color-background-dark: $color-black,
+  gradient-gold: $color-gold,
+  background-gradient-navy: $color-navy,
+  background-gold: $color-gold,
+  background-dark: $color-charcoal,
+  bg-primary: $color-navy,
+  bg-secondary: $color-cool-gray,
+  bg-tertiary: $color-slate-blue,
+  color-chip-bg: $color-chip-blue-bg,
+
+  // Border Colors
+  color-border-gold: $color-gold,
+  color-outline-border: $color-blue,
+  color-border-light-blue: $color-sky-blue,
+  color-border-secondary: $color-slate,
+  border-primary: $color-navy,
+  border-tertiary: $color-slate-blue,
+  border-dark: $color-midnight-blue,
+  color-border-card-light: $color-card-divider-light,
+
+  // Text Colors
+  color-text-light: $color-light-gray,
+  color-text-success: $color-green,
+  color-text-info: $color-sky-blue,
+  color-text-accent: $color-gold,
+  color-text-primary: $color-white,
+  text-secondary: $color-slate-blue,
+  color-chip-text: $color-chip-cyan,
+  );
+
+$theme-cloud: (
+  // Background Colors
+  color-background-dark: $color-black,
+  gradient-gold: $color-gold,
+  background-gradient-navy: $color-navy,
+  background-gold: $color-gold,
+  background-dark: $color-charcoal,
+  bg-primary: $color-navy,
+  bg-secondary: $color-cool-gray,
+  bg-tertiary: $color-slate-blue,
+  color-chip-bg: $color-chip-blue-bg,
+
+  // Border Colors
+  color-border-gold: $color-gold,
+  color-outline-border: $color-blue,
+  color-border-light-blue: $color-sky-blue,
+  color-border-secondary: $color-slate,
+  border-primary: $color-navy,
+  border-tertiary: $color-slate-blue,
+  border-dark: $color-midnight-blue,
+  color-border-card-light: $color-card-divider-light,
+
+  // Text Colors
+  color-text-light: $color-light-gray,
+  color-text-success: $color-green,
+  color-text-info: $color-sky-blue,
+  color-text-accent: $color-gold,
+  color-text-primary: $color-white,
+  text-secondary: $color-slate-blue,
+  color-chip-text: $color-chip-cyan,
+);
+
+$theme-emergency: (
+  // Background Colors
+  color-background-dark: $color-black,
+  gradient-gold: $color-gold,
+  background-gradient-navy: $color-navy,
+  background-gold: $color-gold,
+  background-dark: $color-charcoal,
+  bg-primary: $color-navy,
+  bg-secondary: $color-cool-gray,
+  bg-tertiary: $color-slate-blue,
+  color-chip-bg: $color-chip-blue-bg,
+
+  // Border Colors
+  color-border-gold: $color-gold,
+  color-outline-border: $color-blue,
+  color-border-light-blue: $color-sky-blue,
+  color-border-secondary: $color-slate,
+  border-primary: $color-navy,
+  border-tertiary: $color-slate-blue,
+  border-dark: $color-midnight-blue,
+  color-border-card-light: $color-card-divider-light,
+
+  // Text Colors
+  color-text-light: $color-light-gray,
+  color-text-success: $color-green,
+  color-text-info: $color-sky-blue,
+  color-text-accent: $color-gold,
+  color-text-primary: $color-white,
+  text-secondary: $color-slate-blue,
+  color-chip-text: $color-chip-cyan,
+);
+
+
+
+// =============================================================================
+// THEME CLASSES
+// =============================================================================
+
+.theme-dark {
+  @include mixins.theme($theme-dark);
+}
+
+.theme-cloud {
+  @include mixins.theme($theme-cloud);
+}
+
+.theme-emergency {
+  @include mixins.theme($theme-emergency);
+}
+
+// Emergency theme overrides nested .theme-dark (exhibition/chapter pages)
+.theme-emergency .theme-dark {
+  @include mixins.theme($theme-emergency);
+}
+
+// Resets all theme CSS variables to initial, blocking inheritance from body
+// Used on the Header to isolate external IndiGo styles from theme changes
+.theme-reset {
+  @each $token, $value in $theme-dark {
+    --#{$token}: #25304B;
+  }
+}

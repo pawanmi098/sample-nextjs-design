@@ -1,0 +1,51 @@
+@use "../styles/_shared" as *;
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: rem(1440);
+  padding: rem(20px) rem(16px) rem(24px);
+  margin-inline: auto;
+  background: var(--color-background-dark);
+}
+
+// Mobile: HandpickedHotelRail appears after FeaturedCardRail (order: 1 pushes it past all order: 0 siblings)
+// Desktop: order: 0 restores natural DOM position (between WhyBookWithUs and FeaturedCardRail)
+.handpickedWrap {
+  order: 1;
+
+  @include media(">tablet") {
+    order: 0;
+  }
+}
+
+// Mobile: TourAndBlogs must be the very last section (order: 2 beats handpickedWrap's order: 1)
+// Desktop: order: 0 keeps it in natural DOM position (after FeaturedCardRail)
+.tourBlogsWrap {
+  order: 2;
+
+  @include media(">tablet") {
+    order: 0;
+  }
+}
+
+.wishlistTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hotelTitle {
+  @include hotel-title;
+  color: var(--color-text-light);
+  margin-bottom: rem(33);
+
+  span {
+    color: var(--color-text-success);
+  }
+}
+
+@include media(">tablet") {
+  .pageContainer {
+    padding: rem(45px) rem(64px) rem(33px);
+  }
+}

@@ -1,0 +1,304 @@
+{
+  "homeLabel": "Homepage",
+  "wishlistBookings": {
+    "ariaLabel": "Wishlist and bookings quick actions",
+    "items": [
+      {
+        "key": "myBookings",
+        "label": "My Bookings",
+        "mwebHidden": true,
+        "icon": {
+          "src": "/assets/home-page/manage-booking.svg",
+          "alt": "Manage booking icon"
+        }
+      },
+      {
+        "key": "wishlist",
+        "label": "Wishlist",
+        "icon": {
+          "src": "/assets/home-page/heart-filled.svg",
+          "alt": "Wishlist icon"
+        }
+      }
+    ]
+  },
+  "bookHotelTitle": "Book <span> Hotel </span>",
+  "searchInfoTitle": "Hi there! Unlock IndiGo Flyers Hotel deals! <span className='gold-style'> Login </span> or use your PNR for top offers!",
+  "searchHotelFields": [
+    {
+      "label": "Destination or Property name",
+      "value": "Where to?",
+      "muted": true
+    },
+    {
+      "label": "Check In",
+      "value": "21 Mar, 23",
+      "type": "date",
+      "dateKey": "checkin"
+    },
+    {
+      "label": "Check Out",
+      "value": "23 Mar, 23",
+      "type": "date",
+      "dateKey": "checkout"
+    },
+    {
+      "label": "No. of Guest & Room",
+      "value": "2 Adults, 1 Room",
+      "type": "pax"
+    }
+  ],
+  "searchFormContent": {
+    "searchByDestination": "Search by Destination",
+    "searchByPNR": "Search by PNR",
+    "newLabel": "New",
+    "searchBtnTitle": "Search"
+  },
+  "recentSearchContent": {
+    "recentSearches": "Recent searches",
+    "myBookings": "My Bookings",
+    "manageHotelLabel": "Manage your hotel stays",
+    "findYourStayLabel": "Find your stay details",
+    "iconList": {
+      "indigoArrow": {
+        "src": "/assets/home-page/indigo-arrow.svg",
+        "alt": "IndiGo booking icon"
+      }
+    }
+  },
+  "promoCarouselContent": [
+    {
+      "imageSrc": "/assets/home-page/coupon-banner.png",
+      "imageAlt": "Hotel promotional offer"
+    },
+    {
+      "imageSrc": "/assets/home-page/coupon-banner.png",
+      "imageAlt": "Hotel promotional offer"
+    },
+    {
+      "imageSrc": "/assets/home-page/coupon-banner.png",
+      "imageAlt": "Hotel promotional offer"
+    }
+  ],
+  "disclaimer": {
+    "disclaimerText": "Hotel product and services are being offered by a third party i.e. Vernost Marketing Services. All hotel bookings, payments, cancellations, and customer support are provided by Vernost and are subject to their terms and conditions.",
+    "poweredByLabel": "Powered by Vernost"
+  },
+  "featuredCardRail": {
+    "title": "Top Short Vacation Getaways",
+    "desktopColumns": 4,
+    "items": [
+      {
+        "id": "meghalaya",
+        "label": "Meghalaya",
+        "imageSrc": "/assets/destinations/meghalaya.png"
+      },
+      {
+        "id": "rishikesh",
+        "label": "Rishikesh",
+        "imageSrc": "/assets/destinations/rishikesh.png"
+      },
+      {
+        "id": "jaipur",
+        "label": "Jaipur",
+        "imageSrc": "/assets/destinations/jaipur.png"
+      },
+      {
+        "id": "allepy",
+        "label": "Allepy",
+        "imageSrc": "/assets/destinations/allepy.png"
+      },
+      {
+        "id": "shimla",
+        "label": "Shimla",
+        "imageSrc": "/assets/destinations/shimla.png"
+      },
+      {
+        "id": "istanbul",
+        "label": "Istanbul",
+        "imageSrc": "/assets/destinations/istanbul.png"
+      },
+      {
+        "id": "dubai",
+        "label": "Dubai",
+        "imageSrc": "/assets/destinations/dubai.png"
+      },
+      {
+        "id": "singapore",
+        "label": "Singapore",
+        "imageSrc": "/assets/destinations/singapore.png"
+      }
+    ]
+  },
+  "handpickedHotels": {
+    "sectionTitle": "Explore these handpicked hotels for your Mumbai getaway",
+    "prevAriaLabel": "Previous hotels",
+    "nextAriaLabel": "Next hotels",
+    "hotels": [
+      {
+        "id": "hotel-1",
+        "hotelName": "Hotel Silver Pride Aerocity",
+        "hotelStars": 5,
+        "rating": "4.5/5",
+        "reviewCount": "1150 reviews",
+        "priceLabel": "Starting onwards",
+        "price": "₹ 15,000",
+        "imageSrc": "/assets/destinations/meghalaya.png",
+        "imageAlt": "Hotel Silver Pride Aerocity"
+      },
+      {
+        "id": "hotel-2",
+        "hotelName": "The Westin Garden City",
+        "hotelStars": 4,
+        "rating": "4.2/5",
+        "reviewCount": "980 reviews",
+        "priceLabel": "Starting onwards",
+        "price": "₹ 12,500",
+        "imageSrc": "/assets/destinations/rishikesh.png",
+        "imageAlt": "The Westin Garden City"
+      },
+      {
+        "id": "hotel-3",
+        "hotelName": "Country Inn & Suites",
+        "hotelStars": 3,
+        "rating": "3.8/5",
+        "reviewCount": "654 reviews",
+        "priceLabel": "Starting onwards",
+        "price": "₹ 8,200",
+        "imageSrc": "/assets/destinations/jaipur.png",
+        "imageAlt": "Country Inn & Suites"
+      },
+      {
+        "id": "hotel-4",
+        "hotelName": "Radisson Blu Plaza",
+        "hotelStars": 5,
+        "rating": "4.7/5",
+        "reviewCount": "2340 reviews",
+        "priceLabel": "Starting onwards",
+        "price": "₹ 18,000",
+        "imageSrc": "/assets/destinations/allepy.png",
+        "imageAlt": "Radisson Blu Plaza"
+      },
+      {
+        "id": "hotel-5",
+        "hotelName": "ITC Maratha Hotel",
+        "hotelStars": 5,
+        "rating": "4.8/5",
+        "reviewCount": "3102 reviews",
+        "priceLabel": "Starting onwards",
+        "price": "₹ 22,000",
+        "imageSrc": "/assets/destinations/shimla.png",
+        "imageAlt": "ITC Maratha Hotel"
+      },
+      {
+        "id": "hotel-6",
+        "hotelName": "Novotel Mumbai Juhu Beach",
+        "hotelStars": 4,
+        "rating": "4.3/5",
+        "reviewCount": "1876 reviews",
+        "priceLabel": "Starting onwards",
+        "price": "₹ 14,000",
+        "imageSrc": "/assets/destinations/istanbul.png",
+        "imageAlt": "Novotel Mumbai Juhu Beach"
+      }
+    ]
+  },
+  "bookWithUs": {
+    "benefits": [
+      {
+        "id": "discounts",
+        "title": "Unbeatable Discounts",
+        "description": "Save up to 25% off (₹ 1,500 )",
+        "iconSrc": "/assets/home-page/why-book/discount.svg",
+        "iconAlt": "Discount"
+      },
+      {
+        "id": "bluchips",
+        "title": "Earn IndiGo BluChips",
+        "description": "Earn 8 IndiGo BluChips on ₹ 100",
+        "iconSrc": "/assets/home-page/why-book/bluchip.svg",
+        "iconAlt": "IndiGo BluChip"
+      },
+      {
+        "id": "global",
+        "title": "Choose Globally",
+        "description": "Choose from ~7 Lakh Hotels Worldwide",
+        "iconSrc": "/assets/home-page/why-book/hotel.svg",
+        "iconAlt": "Hotel"
+      },
+      {
+        "id": "exclusive",
+        "title": "Exclusive Deals",
+        "description": "Exclusive rates for IndiGo flight bookers",
+        "iconSrc": "/assets/home-page/why-book/exclusive.svg",
+        "iconAlt": "IndiGo exclusive deals"
+      }
+    ],
+    "bookWithUsTitle": "Why Book with <span class='brand'>IndiGo</span>"
+  },
+  "tourAndBlogs": {
+    "tours": {
+      "destinations": [
+        {
+          "id": "tour-1",
+          "name": "Dharamshala",
+          "tag": "6E Tours",
+          "imageSrc": "/assets/home-page/destinations/shimla.png",
+          "imageAlt": "Dharamshala landscape"
+        },
+        {
+          "id": "tour-2",
+          "name": "Nashik",
+          "tag": "6E Tours",
+          "imageSrc": "/assets/home-page/destinations/jaipur.png",
+          "imageAlt": "Nashik vineyards"
+        },
+        {
+          "id": "tour-3",
+          "name": "Srinagar",
+          "tag": "6E Tours",
+          "imageSrc": "/assets/home-page/destinations/meghalaya.png",
+          "imageAlt": "Srinagar Dal Lake"
+        },
+        {
+          "id": "tour-4",
+          "name": "Dubai",
+          "tag": "6E Tours",
+          "imageSrc": "/assets/home-page/destinations/dubai.png",
+          "imageAlt": "Dubai skyline"
+        }
+      ]
+    },
+    "blogs": {
+      "sectionTitle": "From our Blogs",
+      "prevAriaLabel": "Previous blog articles",
+      "nextAriaLabel": "Next blog articles",
+      "articles": [
+        {
+          "id": "blog-1",
+          "title": "11 thrilling adventure sports to enjoy in Meghalaya",
+          "imageSrc": "/assets/home-page/destinations/meghalaya.png",
+          "imageAlt": "Adventure sports in Meghalaya"
+        },
+        {
+          "id": "blog-2",
+          "title": "Top luxury hotels for a perfect Mumbai getaway experience",
+          "imageSrc": "/assets/home-page/destinations/dubai.png",
+          "imageAlt": "Luxury hotel view"
+        },
+        {
+          "id": "blog-3",
+          "title": "Exploring the serene backwaters of Allepey on a houseboat",
+          "imageSrc": "/assets/home-page/destinations/allepy.png",
+          "imageAlt": "Allepy backwaters houseboat"
+        },
+        {
+          "id": "blog-4",
+          "title": "A complete guide to the best street food spots in Singapore",
+          "imageSrc": "/assets/home-page/destinations/singapore.png",
+          "imageAlt": "Street food in Singapore"
+        }
+      ]
+    }
+  }
+}
