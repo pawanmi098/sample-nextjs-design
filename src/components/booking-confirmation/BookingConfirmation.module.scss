@@ -1,0 +1,137 @@
+@use '../../styles/_shared' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: rem(12px);
+  overflow: hidden;
+
+  @include media(">tablet") {
+    flex-direction: row;
+    gap: rem(16px);
+    overflow: visible;
+  }
+}
+
+// ── Left: Hotel Image ─────────────────────────────────────────────────────────
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  height: rem(200px);
+  border-radius: rem(12px);
+  overflow: hidden;
+  flex-shrink: 0;
+
+  @include media(">tablet") {
+    width: rem(262px);
+    height: rem(234px);
+  }
+}
+
+.hotelImage {
+  object-fit: cover;
+}
+
+// ── Right: Info Panel ─────────────────────────────────────────────────────────
+
+.infoPanel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border: rem(1px) solid var(--border-tertiary);
+  border-radius: rem(12px);
+  overflow: hidden;
+}
+
+// Header
+
+.header {
+  background: var(--bg-primary);
+  padding: rem(16px) rem(24px);
+}
+
+.hotelName {
+  margin: 0;
+  color: var(--color-text-light);
+  @include bc-hotel-name;
+}
+
+// Body
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+  flex: 1;
+  background: var(--color-background-dark);
+  padding: rem(20px) rem(24px) rem(24px);
+}
+
+// Top group: chip + address
+
+.topGroup {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+}
+
+// Booking chip
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: rem(4px);
+  border: rem(1px) solid var(--color-border-gold);
+  border-radius: rem(12px);
+  background: var(--color-background-dark);
+  padding: rem(3px) rem(8px);
+}
+
+.chipLabel {
+  @include bc-chip-label;
+  color: var(--color-text-accent);
+}
+
+// Address + See On Map
+
+.addressGroup {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4px);
+}
+
+.address {
+  margin: 0;
+  color: var(--color-text-light);
+  @include bc-address-text;
+}
+
+.seeOnMap {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(5px);
+  color: var(--color-text-light);
+  text-decoration: none;
+  @include bc-see-on-map;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.locationIcon {
+  flex-shrink: 0;
+  width: rem(20px);
+  height: rem(20px);
+}
+
+// Contact
+
+.contact {
+  margin: 0;
+  color: var(--color-text-light);
+  @include bc-contact-text;
+}

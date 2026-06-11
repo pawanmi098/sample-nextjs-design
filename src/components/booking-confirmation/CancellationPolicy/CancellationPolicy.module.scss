@@ -1,0 +1,136 @@
+@use '../../../styles/_shared' as *;
+
+// ── Card shell ────────────────────────────────────────────────────────────────
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+  padding-block: rem(24px);
+  background: var(--color-background-dark);
+  border: rem(1px) solid var(--border-tertiary);
+  border-radius: rem(12px);
+  box-shadow: 0 rem(2px) rem(40px) rgba(0, 0, 0, 0.07);
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+}
+
+.titleRow {
+  padding-left: rem(24px);
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8px);
+}
+
+.title {
+  margin: 0;
+  color: var(--color-text-light);
+  @include cp-section-title;
+}
+
+.description {
+  margin: 0;
+  color: var(--text-secondary);
+  @include cp-subtitle;
+}
+
+// ── Divider ───────────────────────────────────────────────────────────────────
+
+.divider {
+  border: none;
+  border-top: rem(1px) dashed var(--border-tertiary);
+}
+
+// ── Content ───────────────────────────────────────────────────────────────────
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+  padding-inline: rem(24px);
+}
+
+// ── Timeline steps ────────────────────────────────────────────────────────────
+
+.stepsRow {
+  display: flex;
+  align-items: flex-start;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(14px);
+}
+
+.connector {
+  flex: 1;
+  margin-top: rem(19px);
+  border-top: rem(1px) dashed var(--bg-primary);
+}
+
+.iconCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(38px);
+  height: rem(38px);
+  border-radius: 50%;
+  background: var(--bg-primary);
+  flex-shrink: 0;
+  color: var(--color-text-light);
+}
+
+// ── Step text ─────────────────────────────────────────────────────────────────
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(4px);
+  text-align: center;
+}
+
+.stepLabel {
+  @include cp-step-label;
+  color: var(--color-text-light);
+}
+
+.stepAmount {
+  @include cp-step-amount;
+  color: var(--color-text-light);
+}
+
+.stepDate {
+  @include cp-step-date;
+  color: var(--color-text-light);
+}
+
+// ── Bullet list ───────────────────────────────────────────────────────────────
+
+.bulletList {
+  margin: 0;
+  padding-left: rem(16px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(0px);
+
+  li + li {
+    margin-top: rem(12px);
+  }
+}
+
+.bulletItem {
+  @include cp-bullet-item;
+  color: var(--color-text-light);
+}

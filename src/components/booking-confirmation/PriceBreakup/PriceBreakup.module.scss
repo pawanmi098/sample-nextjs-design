@@ -1,0 +1,176 @@
+@use '../../../styles/_shared' as *;
+
+// ── Card shell ────────────────────────────────────────────────────────────────
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: rem(20px);
+  padding-block: rem(20px);
+  width: 100%;
+  background: var(--color-background-dark);
+  border: rem(1px) solid var(--border-tertiary);
+  border-radius: rem(12px);
+
+  @include media(">tablet") {
+    width: rem(378px);
+    flex-shrink: 0;
+  }
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+}
+
+.titleRow {
+  padding-inline: rem(24px);
+}
+
+.title {
+  margin: 0;
+  color: var(--color-text-light);
+  @include pb-title;
+}
+
+// ── Divider ───────────────────────────────────────────────────────────────────
+
+.divider {
+  height: 0;
+  border: none;
+  border-top: rem(1px) dotted var(--border-tertiary);
+}
+
+// ── Price items ───────────────────────────────────────────────────────────────
+
+.priceItems {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+  padding-inline: rem(24px);
+}
+
+.itemGroup {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8px);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: rem(8px);
+}
+
+.labelBold {
+  @include pb-item-bold;
+  color: var(--color-text-light);
+}
+
+.valueBold {
+  @include pb-item-bold;
+  color: var(--color-text-light);
+  flex-shrink: 0;
+}
+
+.labelRegular {
+  @include pb-item-regular;
+  color: var(--color-text-light);
+}
+
+.valueRegular {
+  @include pb-item-regular;
+  color: var(--color-text-light);
+  flex-shrink: 0;
+}
+
+.labelDiscount {
+  @include pb-item-regular;
+  color: var(--color-text-success);
+}
+
+.valueDiscount {
+  @include pb-item-regular;
+  color: var(--color-text-success);
+  flex-shrink: 0;
+}
+
+// ── Total section ─────────────────────────────────────────────────────────────
+
+.totalSection {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: rem(24px);
+}
+
+.totalLabel {
+  @include pb-total-label;
+  color: var(--color-text-light);
+}
+
+.totalValue {
+  @include pb-total-label;
+  color: var(--color-text-light);
+}
+
+// ── Pay at hotel ──────────────────────────────────────────────────────────────
+
+.payAtHotel {
+  display: flex;
+  flex-direction: column;
+  gap: rem(9px);
+  padding-inline: rem(24px);
+}
+
+.payLocalGroup {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4px);
+}
+
+.labelSm {
+  @include pb-item-sm;
+  color: var(--color-text-light);
+}
+
+.note {
+  margin: 0;
+  @include pb-item-sm;
+  color: var(--color-text-info);
+}
+
+// ── Info section ──────────────────────────────────────────────────────────────
+
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8px);
+}
+
+.infoRow {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(8px);
+  padding-inline: rem(24px);
+}
+
+.infoIcon {
+  flex-shrink: 0;
+  color: var(--color-text-info);
+}
+
+.infoText {
+  @include pb-item-sm;
+  color: var(--color-text-info);
+}

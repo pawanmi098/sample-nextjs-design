@@ -1,0 +1,59 @@
+@use '../../../styles/_shared' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+  padding: rem(16px);
+  border-radius: rem(12px);
+  background: var(--color-background-dark);
+  border: rem(1px) solid var(--border-tertiary);
+  width: 100%;
+
+  @include media(">tablet") {
+    width: rem(378px);
+    flex-shrink: 0;
+  }
+}
+
+.header {
+  margin: 0;
+  color: var(--color-text-light);
+  @include dc-header;
+}
+
+.imageCard {
+  position: relative;
+  height: rem(200px);
+  border-radius: rem(12px);
+  border: rem(1px) solid var(--bg-primary);
+  overflow: hidden;
+}
+
+.bgImage {
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: rem(20px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(4px);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, transparent 100%);
+}
+
+.dealTitle {
+  margin: 0;
+  color: var(--color-text-primary);
+  @include dc-deal-title;
+}
+
+.dealCode {
+  margin: 0;
+  color: var(--color-text-primary);
+  @include dc-deal-code;
+}

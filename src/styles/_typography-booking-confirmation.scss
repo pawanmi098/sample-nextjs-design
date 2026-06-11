@@ -1,0 +1,233 @@
+@use "_mixins" as *;
+@use "_media" as *;
+
+@mixin bc-manage-booking-title {
+  @include defaultTypoStyles(18, -0.4px, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin bc-action-link {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin bc-hotel-name {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin bc-chip-label {
+  @include defaultTypoStyles(12, 0, 18, 500, var(--font-family-poppins-medium));
+}
+
+@mixin bc-address-text {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin bc-see-on-map {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin bc-contact-text {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin cb-banner-title {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin cb-banner-subtitle {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin cb-banner-button {
+  @include defaultTypoStyles(12, 0, 19, 500, var(--font-family-poppins-medium));
+}
+
+@mixin dc-header {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin dc-deal-title {
+  @include defaultTypoStyles(24, 0, 32, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin dc-deal-code {
+  @include defaultTypoStyles(14, 0, 20, 400, var(--font-family-poppins-regular));
+}
+
+// ReservationDetails
+@mixin rd-section-title {
+  @include defaultTypoStyles(20, 0, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin rd-label-lg {
+  @include defaultTypoStyles(14, 0, 21, 400, var(--font-family-poppins-regular));
+}
+
+@mixin rd-label {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin rd-section-heading {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin rd-value-bold {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin rd-value-regular {
+  @include defaultTypoStyles(14, 0, 21, 400, var(--font-family-poppins-regular));
+}
+
+@mixin rd-status-confirmed {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin rd-inclusion-label {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin rd-pay-notice {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin rd-pay-disclaimer {
+  @include defaultTypoStyles(10, 0, 15, 400, var(--font-family-poppins-regular));
+}
+
+// PriceBreakup
+@mixin pb-title {
+  @include defaultTypoStyles(18, -0.4px, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin pb-item-bold {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin pb-item-regular {
+  @include defaultTypoStyles(14, 0, 21, 400, var(--font-family-poppins-regular));
+}
+
+@mixin pb-item-sm {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin pb-total-label {
+  @include defaultTypoStyles(10, 0, 15, 500, var(--font-family-poppins-medium));
+}
+
+// CancellationPolicy
+@mixin cp-section-title {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin cp-subtitle {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin cp-step-label {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin cp-step-amount {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin cp-step-date {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin cp-bullet-item {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+// BluChipNudge
+@mixin bcn-heading {
+  @include defaultTypoStyles(20, 0, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin bcn-subtext {
+  @include defaultTypoStyles(14, 0, 21, 400, var(--font-family-poppins-regular));
+}
+
+// SightseeingCard
+@mixin sc-label {
+  @include defaultTypoStyles(10, 0, 15, 500, var(--font-family-poppins-medium));
+}
+
+@mixin sc-title {
+  @include defaultTypoStyles(24, 0, 32, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin sc-cta {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+// SightseeingExplore
+@mixin se-section-title {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin se-subtitle {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin se-card-title {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin se-card-location {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin se-card-rating-count {
+  @include defaultTypoStyles(12, 0, 16, 400, var(--font-family-poppins-regular));
+}
+
+@mixin se-price {
+  @include defaultTypoStyles(9, 0, 15, 400, var(--font-family-poppins-regular));
+}
+
+@mixin se-book-btn {
+  @include defaultTypoStyles(13, 0, 19, 500, var(--font-family-poppins-medium));
+}
+
+@mixin se-explore-btn {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+// MoreOptions
+@mixin mo-heading {
+  @include defaultTypoStyles(24, 0, 29, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin mo-card-title {
+  @include defaultTypoStyles(14, 0, 21, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mo-card-price {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mo-new-chip {
+  @include defaultTypoStyles(10, 0, 15, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mo-cta-btn {
+  @include defaultTypoStyles(13, 0, 19, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mo-timer-text {
+  @include defaultTypoStyles(12, 0, 18, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mo-cab-title {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mo-discount-chip {
+  @include defaultTypoStyles(12, 0, 18, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mo-bottom-banner {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}

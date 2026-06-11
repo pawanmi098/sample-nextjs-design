@@ -1,6 +1,8 @@
 @use "_mixins" as *;
 @use "_media" as *;
 
+@forward "typography-booking-confirmation";
+
 @mixin hotel-title {
   @include defaultTypoStyles(
     44,

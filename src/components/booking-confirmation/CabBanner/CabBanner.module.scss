@@ -1,0 +1,68 @@
+@use '../../../styles/_shared' as *;
+
+.banner {
+  display: flex;
+  align-items: stretch;
+  border-radius: rem(12px);
+  background: var(--color-text-info);
+  border: rem(1.5px) solid var(--border-tertiary);
+  overflow: hidden;
+  width: 100%;
+}
+
+.iconSection {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: rem(10px);
+}
+
+.icon {
+  object-fit: contain;
+  width: rem(58px);
+  height: rem(44px);
+}
+
+.infoSection {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: rem(24px);
+  background: var(--bg-primary);
+  padding: rem(8px) rem(12px);
+}
+
+.textGroup {
+  display: flex;
+  flex-direction: column;
+  gap: rem(2px);
+}
+
+.title {
+  margin: 0;
+  color: var(--color-text-light);
+  @include cb-banner-title;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--color-text-success);
+  @include cb-banner-subtitle;
+}
+
+.button {
+  flex-shrink: 0;
+  background: var(--background-gold);
+  color: var(--color-text-primary);
+  border: none;
+  border-radius: rem(4px);
+  padding: rem(5px) rem(16px);
+  cursor: pointer;
+  @include cb-banner-button;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

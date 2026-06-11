@@ -1,0 +1,99 @@
+@use '../../../styles/_shared' as *;
+
+// Outer wrapper creates space above the card for the device image to overflow into
+.outer {
+  position: relative;
+  width: 100%;
+  padding-top: rem(10px); // device overflows ~10px above the outer Figma frame
+
+  @include media(">tablet") {
+    width: rem(378px);
+    flex-shrink: 0;
+  }
+}
+
+// Gradient card — starts 12px below the outer frame top, height 104px, br:16
+.card {
+  position: relative;
+  height: rem(104px);
+  margin-top: rem(12px);
+  background: linear-gradient(135deg, #738098 0%, #485467 100%);
+  border-radius: rem(16px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+// Text block — x:134 from card left, y:17 from card top (Figma coords)
+.textGroup {
+  position: absolute;
+  left: rem(134px);
+  top: rem(17px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(6px);
+  padding-right: rem(16px);
+}
+
+.heading {
+  margin: 0;
+  color: var(--color-text-primary);
+  @include bcn-heading;
+}
+
+.highlight {
+  color: var(--color-text-success);
+}
+
+.subtext {
+  margin: 0;
+  // color from Figma: rgba(234, 248, 255) — light sky blue
+  color: #eaf8ff;
+  @include bcn-subtext;
+}
+
+// Device group — absolutely positioned, starts at top of .outer
+// at x:3, y:0 of outer (=card y:-22 because card has margin-top:12 and device overflows by 10)
+.deviceGroup {
+  position: absolute;
+  left: rem(3px);
+  top: 0;
+  width: rem(109px);
+  height: rem(105px);
+  pointer-events: none;
+}
+
+.deviceImageWrap {
+  position: absolute;
+  left: rem(7px);
+  top: 0;
+  width: rem(101px);
+  height: rem(105px);
+}
+
+.deviceImg {
+  object-fit: contain;
+}
+
+// Star sparkles positioned around the device (Figma positions relative to card,
+// converted to device group local coords: x - 3px, y + 10px)
+.star1 {
+  position: absolute;
+  left: rem(0);
+  top: rem(66px); // card y:55.9 → +10 = 65.9
+  color: #ede8a0;
+}
+
+.star2 {
+  position: absolute;
+  right: rem(4px); // x:104.8 from card left → 109-(104.8-3)=7.2 from group right
+  top: rem(23px);  // card y:12.9 → +10 = 22.9
+  color: #ede8a0;
+}
+
+.star3 {
+  position: absolute;
+  right: rem(19px); // x:90.2 from card left → 109-(90.2-3)=21.8 from group right
+  top: rem(69px);  // card y:58.7 → +10 = 68.7
+  color: #ede8a0;
+}

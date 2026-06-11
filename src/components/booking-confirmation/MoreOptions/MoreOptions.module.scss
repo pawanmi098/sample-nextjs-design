@@ -1,0 +1,187 @@
+@use '../../../styles/_shared' as *;
+
+// ── Outer container ───────────────────────────────────────────────────────────
+
+.container {
+  background: var(--color-background-dark);
+  border: rem(1px) solid var(--border-tertiary);
+  border-radius: rem(12px);
+  padding: rem(24px) rem(16px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+
+  @include media(">tablet") {
+    width: rem(378px);
+    flex-shrink: 0;
+  }
+}
+
+.heading {
+  margin: 0;
+  color: var(--color-text-light);
+  @include mo-heading;
+}
+
+// ── Cards list ────────────────────────────────────────────────────────────────
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+}
+
+// ── Shared card shell ─────────────────────────────────────────────────────────
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: rem(88px);
+  border: rem(1px) solid var(--border-tertiary);
+  border-radius: rem(12px);
+  overflow: hidden;
+}
+
+// ── Image wrap (shared by both cards) ────────────────────────────────────────
+
+.imageWrap {
+  position: relative;
+  width: rem(92px);
+  flex-shrink: 0;
+}
+
+.cardImage {
+  object-fit: cover;
+}
+
+// ── Timer chip (sightseeing card, absolutely positioned over image) ───────────
+
+.timerChip {
+  position: absolute;
+  left: rem(5px);
+  top: rem(6px);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: rem(4px);
+  background: #fff8e5;
+  border: rem(1px) solid var(--color-border-gold);
+  border-radius: rem(12px);
+  padding: rem(2px) rem(8px) rem(2px) rem(4px);
+}
+
+.clockIcon {
+  flex-shrink: 0;
+  width: rem(20px);
+  height: rem(20px);
+}
+
+.timerText {
+  @include mo-timer-text;
+  color: var(--color-text-accent);
+}
+
+// ── Info panel (shared by both cards) ────────────────────────────────────────
+
+.infoPanel {
+  flex: 1;
+  background: var(--color-background-dark);
+  padding: rem(12px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.textGroup {
+  display: flex;
+  flex-direction: column;
+  gap: rem(3px);
+}
+
+.cardTitle {
+  margin: 0;
+  color: var(--color-text-light);
+  @include mo-card-title;
+}
+
+.cardPrice {
+  margin: 0;
+  color: var(--color-text-light);
+  @include mo-card-price;
+}
+
+// "New" chip — asymmetric border-radius (top-left flat, rest rounded)
+.newChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  background: #00aee5;
+  border: rem(1px) solid #00aee5;
+  border-radius: rem(4px) rem(12px) rem(12px) rem(12px);
+  padding: rem(2px) rem(8px);
+  @include mo-new-chip;
+  color: var(--color-text-light);
+}
+
+// ── Shared CTA button ─────────────────────────────────────────────────────────
+
+.ctaBtn {
+  flex-shrink: 0;
+  background: var(--color-border-gold);
+  border: none;
+  border-radius: rem(4px);
+  padding: rem(5px) rem(16px);
+  @include mo-cta-btn;
+  color: var(--color-text-primary);
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+// ── Cab card variant (110 px tall) ────────────────────────────────────────────
+
+.cabCard {
+  height: rem(110px);
+}
+
+.cabPanelWrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.cabTitle {
+  margin: 0;
+  color: var(--color-text-light);
+  @include mo-cab-title;
+}
+
+.discountChip {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  background: #f0fff5;
+  border: rem(1px) solid var(--color-text-success);
+  border-radius: rem(12px);
+  padding: rem(3px) rem(8px);
+  @include mo-discount-chip;
+  color: var(--color-text-success);
+}
+
+.bottomBanner {
+  flex-shrink: 0;
+  height: rem(30px);
+  background: #25304b;
+  padding: rem(6px) rem(8px) rem(6px) rem(12px);
+  display: flex;
+  align-items: center;
+  @include mo-bottom-banner;
+  color: var(--color-text-success);
+}

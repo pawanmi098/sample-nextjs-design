@@ -1,0 +1,103 @@
+@use '../../../styles/_shared' as *;
+
+// Card: #0D0D0D bg, 16px padding all sides, 16px gap, br:12 — Figma 672:35078
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+  padding: rem(16px);
+  border-radius: rem(12px);
+  // Figma fill: rgba(13,13,13) = $color-black = var(--color-background-dark)
+  background: var(--color-background-dark);
+  border: rem(1px) solid var(--border-tertiary);
+  width: 100%;
+
+  @include media(">tablet") {
+    width: rem(378px);
+    flex-shrink: 0;
+  }
+}
+
+// Header — Figma 672:35080, gap:8
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8px);
+}
+
+// "Book your sightseeing" — fs:10, fw:500, color rgba(122,133,160) — Figma 672:35081
+.label {
+  margin: 0;
+  // rgba(122,133,160) ≈ $color-slate-blue → var(--text-secondary)
+  color: var(--text-secondary);
+  @include sc-label;
+}
+
+// "Get 5% off with the booking" — fs:24, fw:500, color rgba(239,239,239) — Figma 672:35082
+.title {
+  margin: 0;
+  // rgba(239,239,239) = $color-light-gray → var(--color-text-light)
+  color: var(--color-text-light);
+  @include sc-title;
+}
+
+// Image card — Figma 672:35083: 264px tall, br:8, overflow:hidden
+.imageCard {
+  position: relative;
+  height: rem(264px);
+  border-radius: rem(8px);
+  overflow: hidden;
+}
+
+.bgImage {
+  object-fit: cover;
+}
+
+// CTA overlay — Figma 672:35085 is centered at bottom of image card
+.ctaWrapper {
+  position: absolute;
+  bottom: rem(16px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// "Explore Sightseeing" button — gold bg #A97D0E, white text, fs:12, fw:600, br:8
+.ctaButton {
+  display: block;
+  padding: rem(15px) rem(32px);
+  background: var(--background-gold);
+  border: none;
+  border-radius: rem(8px);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  white-space: nowrap;
+  @include sc-cta;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+// Carousel indicator — Figma 672:35087: 56px wide, 8px tall, gap:4, centered
+.indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(4px);
+}
+
+// Active dot: 32×8, br:6, gold — Figma 672:35088
+.dot {
+  height: rem(8px);
+  border-radius: rem(6px);
+  // inactive dots: smaller, gray
+  width: rem(8px);
+  background: var(--text-secondary);
+  cursor: pointer;
+
+  &.dotActive {
+    // active pill: 32px wide, gold — Figma 672:35088
+    width: rem(32px);
+    background: var(--background-gold);
+  }
+}

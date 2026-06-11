@@ -1,0 +1,233 @@
+@use '../../../styles/_shared' as *;
+
+// ── Card shell ────────────────────────────────────────────────────────────────
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: var(--color-background-dark);
+  border: rem(1px) solid var(--border-tertiary);
+  border-radius: rem(12px);
+  overflow: hidden;
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+
+.header {
+  padding: rem(20px) rem(24px) rem(12px);
+}
+
+.sectionTitle {
+  margin: 0;
+  color: var(--color-text-light);
+  @include rd-section-title;
+}
+
+// ── Dividers ──────────────────────────────────────────────────────────────────
+
+.divider {
+  height: 0;
+  border: none;
+  border-top: rem(1px) dotted var(--border-tertiary);
+}
+
+.dividerThin {
+  height: 0;
+  border: none;
+  border-top: rem(1px) dotted var(--border-tertiary);
+}
+
+// ── Body ──────────────────────────────────────────────────────────────────────
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+  padding: rem(22px) rem(24px) rem(20px);
+}
+
+// ── Booking status section ────────────────────────────────────────────────────
+
+.statusGroup {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+}
+
+.statusItem {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+}
+
+.labelLg {
+  @include rd-label-lg;
+  color: var(--text-secondary);
+}
+
+.confirmedBadge {
+  @include rd-status-confirmed;
+  color: var(--color-text-success);
+}
+
+.idRow {
+  display: flex;
+  gap: rem(24px);
+  flex-wrap: wrap;
+}
+
+.idItem {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+  flex: 1;
+  min-width: rem(140px);
+}
+
+.valueBold {
+  @include rd-value-bold;
+  color: var(--color-text-light);
+}
+
+// ── Pay at property notice ────────────────────────────────────────────────────
+
+.payNotice {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4px);
+}
+
+.payRow {
+  display: flex;
+  align-items: center;
+  gap: rem(8px);
+  padding: rem(8px) rem(12px);
+  background: var(--color-background-dark);
+}
+
+.infoIcon {
+  flex-shrink: 0;
+  color: var(--color-text-info);
+}
+
+.payText {
+  @include rd-pay-notice;
+  color: var(--color-text-info);
+}
+
+.payDisclaimer {
+  margin: 0;
+  @include rd-pay-disclaimer;
+  color: var(--color-text-info);
+}
+
+// ── Check-in / Check-out / Nights ─────────────────────────────────────────────
+
+.datesGroup {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+}
+
+.datesRow {
+  display: flex;
+  gap: rem(24px);
+  flex-wrap: wrap;
+}
+
+.dateItem {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+  flex: 1;
+  min-width: rem(120px);
+}
+
+.dateValue {
+  display: flex;
+  gap: rem(4px);
+  align-items: baseline;
+}
+
+.label {
+  @include rd-label;
+  color: var(--text-secondary);
+}
+
+// ── Room / Guest sections ─────────────────────────────────────────────────────
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+}
+
+.sectionHeading {
+  margin: 0;
+  @include rd-section-heading;
+  color: var(--color-text-light);
+}
+
+.roomRow {
+  display: flex;
+  gap: rem(48px);
+  flex-wrap: wrap;
+}
+
+.roomItem {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+}
+
+.valueRegular {
+  @include rd-value-regular;
+  color: var(--color-text-light);
+}
+
+// ── Inclusions ────────────────────────────────────────────────────────────────
+
+.inclusionsGroup {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+}
+
+.inclusionList {
+  display: flex;
+  gap: rem(24px);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.inclusionItem {
+  display: flex;
+  align-items: center;
+  gap: rem(8px);
+}
+
+.inclusionIcon {
+  flex-shrink: 0;
+  width: rem(24px);
+  height: rem(24px);
+}
+
+.inclusionLabel {
+  @include rd-inclusion-label;
+  color: var(--color-text-light);
+}
+
+// ── Guest details ─────────────────────────────────────────────────────────────
+
+.guestItem {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+}
+
+.guestRow {
+  display: flex;
+  gap: rem(24px);
+  flex-wrap: wrap;
+}
