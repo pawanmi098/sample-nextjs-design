@@ -1,0 +1,65 @@
+@use '../../../styles/_shared' as *;
+
+.card {
+  width: 100%;
+  border-radius: rem(8px);
+  border: rem(1px) solid var(--border-tertiary);
+  overflow: hidden;
+}
+
+.header {
+  background: var(--color-background-dark);
+  padding: rem(8px) rem(16px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(8px);
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  gap: rem(16px);
+}
+
+.statusLabel {
+  flex: 1;
+  color: var(--color-text-light);
+  @include mweb-pd-status-label;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: rem(2px) rem(8px);
+  border: rem(1px) solid var(--color-text-success);
+  border-radius: rem(12px);
+  color: var(--color-text-success);
+  @include mweb-pd-chip;
+}
+
+.divider {
+  height: rem(1px);
+  background: var(--border-tertiary);
+}
+
+.body {
+  background: var(--color-background-dark);
+  padding: rem(8px) rem(16px) rem(12px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  padding: rem(8px);
+  border: rem(1.5px) solid var(--border-primary);
+  border-radius: rem(8px);
+}
+
+.fieldText {
+  color: var(--color-text-light);
+  @include mweb-pd-field-text;
+}

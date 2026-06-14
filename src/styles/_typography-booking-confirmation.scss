@@ -231,3 +231,236 @@
 @mixin mo-bottom-banner {
   @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
 }
+
+// mweb ActionBar
+@mixin mweb-action-btn {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+// mweb BookingConfirmation
+@mixin mweb-bc-confirmed-title {
+  @include defaultTypoStyles(20, 0, 27, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin mweb-bc-hotel-name {
+  @include defaultTypoStyles(14, 0, 20, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mweb-bc-chip-label {
+  @include defaultTypoStyles(10, 0, 16, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mweb-bc-address {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mweb-bc-see-on-map {
+  @include defaultTypoStyles(12, 0, 18, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mweb-bc-contact {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+// mweb CabBanner
+@mixin mweb-cb-banner-title {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mweb-cb-banner-subtitle {
+  @include defaultTypoStyles(10, 0, 15, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mweb-cb-banner-button {
+  @include defaultTypoStyles(10, 0, 14, 400, var(--font-family-poppins-regular));
+}
+
+// mweb PaymentDetails
+@mixin mweb-pd-status-label {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin mweb-pd-chip {
+  @include defaultTypoStyles(10, 0, 15, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mweb-pd-field-text {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+// mweb BookingDetails
+@mixin mweb-bd-heading-label {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin mweb-bd-chip {
+  @include defaultTypoStyles(10, 0, 15, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mweb-bd-date-label {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mweb-bd-date-value {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin mweb-bd-info-text {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mweb-bd-info-note {
+  @include defaultTypoStyles(10, 0, 15, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mweb-bd-show-more {
+  @include defaultTypoStyles(14, 0, 20, 500, var(--font-family-poppins-medium));
+}
+
+// mweb CancellationPolicy
+@mixin mweb-cp-title {
+  @include defaultTypoStyles(20, -0.6px, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin mweb-cp-body {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+// mweb SearchFlightBanner
+@mixin mweb-sfb-title {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin mweb-sfb-body {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mweb-sfb-btn {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+// mweb ImportantInfo
+@mixin mweb-ii-title {
+  @include defaultTypoStyles(20, -0.6px, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin mweb-ii-body {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mweb-ii-link {
+  @include defaultTypoStyles(14, 0, 20, 500, var(--font-family-poppins-medium));
+}
+
+// mweb SightseeingExplore
+@mixin mweb-se-section-title {
+  @include defaultTypoStyles(20, 0, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin mweb-se-view-more-btn {
+  @include defaultTypoStyles(11, 0, 16, 500, var(--font-family-poppins-medium));
+}
+
+// mweb SpecialOffers (Figma 460:20125)
+@mixin mweb-so-title {
+  @include defaultTypoStyles(20, -0.6px, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin mweb-so-chip-sm {
+  // Figma: 10/500, lh=16
+  @include defaultTypoStyles(10, 0, 16, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mweb-so-chip-lg {
+  // Figma: 12/500, lh=18
+  @include defaultTypoStyles(12, 0, 18, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mweb-so-offer-text {
+  // Figma: 14/400, lh=20
+  @include defaultTypoStyles(14, 0, 20, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mweb-so-offer-title-sm {
+  // Figma dark card: 14/600, lh=21
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin mweb-so-offer-title-lg {
+  // Figma light card: 20/600, lh=32
+  @include defaultTypoStyles(20, 0, 32, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin mweb-so-offer-subtitle {
+  // Figma: 12/400, lh=18
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mweb-so-brand-sm {
+  // Figma dark card brand: 16/500, ls=-0.4px, lh=20
+  @include defaultTypoStyles(16, -0.4px, 20, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mweb-so-brand-lg {
+  // Figma light card brand: 18/500, ls=-0.4px, lh=24
+  @include defaultTypoStyles(18, -0.4px, 24, 500, var(--font-family-poppins-medium));
+}
+
+// mweb GstDetails (Figma 460:20194)
+@mixin mweb-gst-title {
+  @include defaultTypoStyles(20, -0.6px, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin mweb-gst-label {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mweb-gst-value {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+// mweb DealCard (Figma 460:20210)
+@mixin mweb-dc-deal-title {
+  @include defaultTypoStyles(20, -0.6px, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin mweb-dc-deal-code {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+// mweb MoreOptions (Figma 460:20218)
+@mixin mweb-mo-heading {
+  @include defaultTypoStyles(20, -0.6px, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin mweb-mo-card-title {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mweb-mo-card-price {
+  @include defaultTypoStyles(8, 0, 12, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mweb-mo-new-chip {
+  @include defaultTypoStyles(10, 0, 15, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mweb-mo-cta-btn {
+  @include defaultTypoStyles(11, 0, 17, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin mweb-mo-timer-text {
+  @include defaultTypoStyles(12, 0, 18, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mweb-mo-cab-title {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mweb-mo-discount-chip {
+  @include defaultTypoStyles(10, 0, 15, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mweb-mo-bottom-banner {
+  @include defaultTypoStyles(10, 0, 15, 400, var(--font-family-poppins-regular));
+}

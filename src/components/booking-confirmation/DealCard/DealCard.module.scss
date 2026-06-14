@@ -1,4 +1,5 @@
 @use '../../../styles/_shared' as *;
+@use '../../../styles/_typography-booking-confirmation' as *;
 
 .card {
   display: flex;
@@ -49,11 +50,20 @@
 .dealTitle {
   margin: 0;
   color: var(--color-text-primary);
-  @include dc-deal-title;
+  @include mweb-dc-deal-title;
+
+  @include media(">tablet") {
+    @include dc-deal-title;
+  }
 }
 
 .dealCode {
   margin: 0;
   color: var(--color-text-primary);
-  @include dc-deal-code;
+  @include mweb-dc-deal-code;
+
+  @include media(">tablet") {
+    @include dc-deal-code;
+  }
 }
+

@@ -1,0 +1,169 @@
+@use '../../../styles/_shared' as *;
+
+.card {
+  width: 100%;
+  border: rem(1px) solid rgb(122, 133, 160);
+  border-radius: rem(12px);
+  overflow: hidden;
+}
+
+// ── Heading ──────────────────────────────────────────────────────────────────
+
+.heading {
+  background: var(--color-background-dark);
+  padding: rem(8px) rem(16px);
+}
+
+.headingRow {
+  display: flex;
+  align-items: center;
+  gap: rem(16px);
+  padding: rem(4px) rem(0);
+  border-bottom: rem(1px) solid rgb(37, 48, 75);
+  padding-bottom: rem(8px);
+}
+
+.headingLabel {
+  flex: 1;
+  color: var(--color-text-light);
+  @include mweb-bd-heading-label;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: rem(2px) rem(8px);
+  background: rgba(240, 255, 245, 1);
+  border-radius: rem(12px);
+  color: rgb(33, 137, 70);
+  @include mweb-bd-chip;
+}
+
+// ── Body ─────────────────────────────────────────────────────────────────────
+
+.body {
+  background: var(--color-background-dark);
+  padding: rem(16px) rem(16px) rem(20px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+}
+
+// ── Date section ─────────────────────────────────────────────────────────────
+
+.dateSection {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+}
+
+.dateRow {
+  display: flex;
+  flex-direction: row;
+  gap: rem(10px);
+}
+
+.dateGroup {
+  display: flex;
+  flex-direction: column;
+  gap: rem(2px);
+  flex: 1;
+}
+
+.dateLabel {
+  color: var(--color-text-light);
+  @include mweb-bd-date-label;
+}
+
+.dateValue {
+  display: flex;
+  flex-direction: row;
+  gap: rem(4px);
+  flex-wrap: wrap;
+}
+
+.dateText {
+  color: var(--color-text-light);
+  @include mweb-bd-date-value;
+}
+
+// ── Stay info box ─────────────────────────────────────────────────────────────
+
+.stayInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(16px);
+  padding: rem(12px);
+  border: rem(1px) solid rgb(209, 239, 255);
+  border-radius: rem(8px);
+}
+
+.stayInfoItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(8px);
+}
+
+.infoText {
+  color: var(--color-text-light);
+  @include mweb-bd-info-text;
+}
+
+// ── Pay at property notice ────────────────────────────────────────────────────
+
+.payNotice {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4px);
+}
+
+.payBanner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(8px);
+  padding: rem(8px) rem(12px);
+  border: rem(1px) solid rgb(0, 174, 229);
+  border-radius: rem(4px);
+}
+
+.payBannerText {
+  color: rgb(0, 174, 229);
+  @include mweb-bd-info-text;
+}
+
+.payNote {
+  color: rgb(0, 174, 229);
+  @include mweb-bd-info-note;
+}
+
+// ── Footer ────────────────────────────────────────────────────────────────────
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8px);
+}
+
+.divider {
+  height: rem(1px);
+  background: rgb(122, 133, 160);
+}
+
+.showMore {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(4px);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.showMoreText {
+  color: rgb(169, 125, 14);
+  @include mweb-bd-show-more;
+}

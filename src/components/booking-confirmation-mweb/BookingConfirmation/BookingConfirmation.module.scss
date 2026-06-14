@@ -1,0 +1,131 @@
+@use '../../../styles/_shared' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: rem(12px);
+  overflow: hidden;
+}
+
+// ── Image Section ──────────────────────────────────────────────────────────────
+
+.imageSection {
+  position: relative;
+  width: 100%;
+  height: rem(165px);
+  overflow: hidden;
+}
+
+.hotelImage {
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: rem(12px);
+}
+
+// Confirmed badge: green circle above "Booking Confirmed" text — both centered
+.confirmedBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(8px);
+}
+
+.checkIcon {
+  flex-shrink: 0;
+}
+
+.confirmedText {
+  @include mweb-bc-confirmed-title;
+  color: var(--color-text-light);
+}
+
+// Hotel meta: name + chip stacked vertically, both centered
+.hotelMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(4px);
+}
+
+.hotelName {
+  @include mweb-bc-hotel-name;
+  color: var(--color-text-light);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-background-dark);
+  padding: rem(2px) rem(8px);
+  border-radius: rem(12px);
+}
+
+.chipLabel {
+  @include mweb-bc-chip-label;
+  color: var(--color-text-accent);
+}
+
+// ── Info Panel ─────────────────────────────────────────────────────────────────
+
+.infoPanel {
+  background: var(--background-dark);
+  padding: rem(12px) rem(12px) rem(10px) rem(12px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: rem(4px);
+}
+
+.addressGroup {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4px);
+}
+
+.address {
+  margin: 0;
+  @include mweb-bc-address;
+  color: var(--color-text-light);
+}
+
+.seeOnMap {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(5px);
+  text-decoration: none;
+  @include mweb-bc-see-on-map;
+  color: var(--color-text-accent);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.locationIcon {
+  flex-shrink: 0;
+}
+
+.contactRow {
+  display: flex;
+  align-items: center;
+  gap: rem(8px);
+}
+
+.contactIcon {
+  flex-shrink: 0;
+  color: var(--color-text-light);
+}
+
+.contact {
+  @include mweb-bc-contact;
+  color: var(--color-text-light);
+}

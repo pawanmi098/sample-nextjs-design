@@ -1,0 +1,68 @@
+@use '../../../styles/_shared' as *;
+
+.banner {
+  display: flex;
+  align-items: stretch;
+  border-radius: rem(8px);
+  border: rem(1px) solid var(--border-tertiary);
+  overflow: hidden;
+  width: 100%;
+}
+
+.iconSection {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: rem(4px);
+  background: var(--color-text-info);
+}
+
+.icon {
+  object-fit: contain;
+  width: rem(30px);
+  height: rem(23px);
+}
+
+.infoSection {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: rem(12px);
+  background: var(--bg-primary);
+}
+
+.textGroup {
+  display: flex;
+  flex-direction: column;
+  padding: rem(6px) rem(8px);
+}
+
+.title {
+  margin: 0;
+  color: var(--color-text-light);
+  @include mweb-cb-banner-title;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--color-text-success);
+  @include mweb-cb-banner-subtitle;
+}
+
+.button {
+  flex-shrink: 0;
+  background: var(--background-gold);
+  color: var(--color-text-primary);
+  border: none;
+  border-radius: rem(14px);
+  padding: rem(5px) rem(10px);
+  cursor: pointer;
+  white-space: nowrap;
+  @include mweb-cb-banner-button;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

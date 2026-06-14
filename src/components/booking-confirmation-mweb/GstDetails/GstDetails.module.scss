@@ -1,0 +1,56 @@
+@use '../../../styles/_shared' as *;
+@use '../../../styles/_typography-booking-confirmation' as *;
+
+// Figma 460:20194 — "GST Details"
+// Outer frame: VERTICAL, gap=16
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+  width: 100%;
+}
+
+// Figma text: 20/500 Bauhaus, ls=-0.6px, lh=24, #efefef
+.title {
+  margin: 0;
+  @include mweb-gst-title;
+  color: var(--color-text-light);
+}
+
+// Figma Frame 1321318561: no fill, border 1px #7a85a0, br=12
+// outer pad=20,24,20,0 + inner pad=0,16,0,16 → combined 20,40,20,16
+.card {
+  border: 1px solid $color-slate-blue;
+  border-radius: rem(12px);
+  padding: rem(20px) rem(40px) rem(20px) rem(16px);
+}
+
+// Figma Frame 1321318619: VERTICAL, gap=16
+.fieldsList {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Figma field row frame: VERTICAL, gap=2
+.fieldRow {
+  display: flex;
+  flex-direction: column;
+  gap: rem(2px);
+}
+
+// Figma label: 12/400 Poppins, lh=18, #efefef
+.label {
+  @include mweb-gst-label;
+  color: var(--color-text-light);
+}
+
+// Figma value: 12/400 Poppins, lh=18, #efefef
+.value {
+  @include mweb-gst-value;
+  color: var(--color-text-light);
+}

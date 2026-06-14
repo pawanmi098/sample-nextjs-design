@@ -1,0 +1,53 @@
+@use '../../../styles/_shared' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(12px);
+  padding: rem(16px) rem(12px);
+  border: rem(1px) solid rgba(122, 133, 160, 1);
+  border-radius: rem(12px);
+}
+
+.contentRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: rem(16px);
+  width: 100%;
+}
+
+.iconWrapper {
+  flex-shrink: 0;
+  width: rem(24px);
+  height: rem(24px);
+}
+
+.textCol {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4px);
+  flex: 1;
+}
+
+.title {
+  color: var(--color-text-light);
+  @include mweb-sfb-title;
+}
+
+.description {
+  color: var(--color-text-light);
+  @include mweb-sfb-body;
+}
+
+.btn {
+  width: 100%;
+  padding: rem(16px) rem(60px);
+  border: rem(1px) solid rgba(169, 125, 14, 1);
+  border-radius: rem(8px);
+  background: transparent;
+  color: rgba(169, 125, 14, 1);
+  cursor: pointer;
+  @include mweb-sfb-btn;
+}

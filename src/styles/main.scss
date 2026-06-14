@@ -12,6 +12,10 @@
 }
 
 body {
-margin: 0;
-padding: 0;
+  margin: 0;
+  padding: 0;
+  background: var(--color-background-dark);
+  max-width: 1440px;
+  margin-inline: auto;
+
 }

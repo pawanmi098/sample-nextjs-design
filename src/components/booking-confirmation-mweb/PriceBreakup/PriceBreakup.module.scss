@@ -1,0 +1,163 @@
+@use '../../../styles/_shared' as *;
+
+// Figma 460:20083 — outer: 335px, title "Bill Details" + bordered card body
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: rem(14px);
+  width: 100%;
+}
+
+// Figma: 20/500 Bauhaus, -0.6px, #efefef
+.title {
+  margin: 0;
+  color: var(--color-text-light);
+  @include mweb-cp-title;
+}
+
+// Figma Frame 1321318548: border=#eeeeee, br=12, bg=charcoal
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+  padding-block: rem(20px);
+  border: rem(1px) solid var(--color-text-light);
+  border-radius: rem(12px);
+  background: var(--background-dark);
+  overflow: hidden;
+}
+
+// Figma Frame 1321318547: inner price rows, 292px (pad ~20px each side)
+.priceItems {
+  display: flex;
+  flex-direction: column;
+  gap: rem(14px);
+  padding-inline: rem(20px);
+}
+
+// Figma Line nodes: border=#7a85a0 = --border-tertiary
+.divider {
+  height: 0;
+  border: none;
+  border-top: rem(1px) solid var(--border-tertiary);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: rem(8px);
+}
+
+// Figma Frame 1321319236: room name stacked vertically, gap=2
+.roomLabelGroup {
+  display: flex;
+  flex-direction: column;
+  gap: rem(2px);
+}
+
+// Figma: 14/600 Poppins SemiBold, #efefef
+.labelBold {
+  @include pb-item-bold;
+  color: var(--color-text-light);
+}
+
+.valueBold {
+  @include pb-item-bold;
+  color: var(--color-text-light);
+  flex-shrink: 0;
+}
+
+// Figma: 14/400 Poppins Regular, #efefef
+.labelRegular {
+  @include pb-item-regular;
+  color: var(--color-text-light);
+}
+
+// Figma: 12/400 Poppins Regular, #7fd287 = --color-text-success
+.labelDiscount {
+  @include pb-item-sm;
+  color: var(--color-text-success);
+}
+
+.valueDiscount {
+  @include pb-item-sm;
+  color: var(--color-text-success);
+  flex-shrink: 0;
+}
+
+// Figma: 12/400 Poppins Regular, #efefef
+.labelSm {
+  @include pb-item-sm;
+  color: var(--color-text-light);
+}
+
+.valueSm {
+  @include pb-item-sm;
+  color: var(--color-text-light);
+  flex-shrink: 0;
+}
+
+// Figma Frame 1321318546: total + pay section, full-width (no inline padding on container)
+.totalSection {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+}
+
+// Figma Frame 1321318545 (total): 296px wide → pad ~20px each side
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: rem(20px);
+}
+
+// Figma: 14/600 Poppins SemiBold, #efefef
+.totalLabel {
+  @include pb-item-bold;
+  color: var(--color-text-light);
+}
+
+.totalValue {
+  @include pb-item-bold;
+  color: var(--color-text-light);
+}
+
+.paySection {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8px);
+  padding-inline: rem(20px);
+}
+
+.payNowGroup {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4px);
+}
+
+// Figma: 10/400 Poppins Regular, #afe4ff = --color-text-info
+.note {
+  margin: 0;
+  @include mweb-bd-info-note;
+  color: var(--color-text-info);
+}
+
+.infoRow {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(8px);
+  padding-inline: rem(20px);
+}
+
+.infoIcon {
+  flex-shrink: 0;
+  color: var(--color-text-info);
+}
+
+// Figma: 12/400 Poppins Regular, #afe4ff
+.infoText {
+  @include pb-item-sm;
+  color: var(--color-text-info);
+}

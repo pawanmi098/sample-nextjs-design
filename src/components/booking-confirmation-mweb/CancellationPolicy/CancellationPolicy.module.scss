@@ -1,0 +1,90 @@
+@use '../../../styles/_shared' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+}
+
+.title {
+  color: var(--color-text-light);
+  @include mweb-cp-title;
+}
+
+.content {
+  border: rem(1px) solid rgb(122, 133, 160);
+  border-radius: rem(12px);
+  padding: rem(20px) rem(24px) rem(30px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+}
+
+// ── Bullet list ───────────────────────────────────────────────────────────────
+
+.bulletList {
+  list-style: disc;
+  padding-left: rem(16px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+}
+
+.bulletItem {
+  color: var(--color-text-light);
+  @include mweb-cp-body;
+}
+
+// ── Progress bar ──────────────────────────────────────────────────────────────
+
+.progressSection {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8px);
+}
+
+.progressBar {
+  position: relative;
+  width: 100%;
+  height: rem(24px);
+  border-radius: rem(12px);
+  background: rgb(175, 228, 255);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.progressFill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 55.5%;
+  border-radius: rem(12px) 0 0 rem(12px);
+  background: rgb(37, 48, 75);
+  display: flex;
+  align-items: center;
+  padding-left: rem(8px);
+}
+
+.fillLabel {
+  color: var(--color-text-light);
+  @include mweb-cp-body;
+}
+
+.remainLabel {
+  position: absolute;
+  right: rem(8px);
+  color: rgb(37, 48, 75);
+  @include mweb-cp-body;
+}
+
+// ── Date labels ───────────────────────────────────────────────────────────────
+
+.progressLabels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.labelText {
+  color: var(--color-text-light);
+  @include mweb-cp-body;
+}

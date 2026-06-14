@@ -1,0 +1,165 @@
+@use '../../../styles/_shared' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+  width: 100%;
+}
+
+// Figma: 20/500 Bauhaus, ls=-0.6px, lh=24, #efefef
+.title {
+  margin: 0;
+  @include mweb-so-title;
+  color: var(--color-text-light);
+}
+
+// Horizontal scroll row, gap=16
+.cardList {
+  display: flex;
+  gap: rem(16px);
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// Figma "Add-ons card/Card style A": pad=12, gap=8, br=12, width=179
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8px);
+  padding: rem(12px);
+  border-radius: rem(12px);
+  flex-shrink: 0;
+  width: rem(179px);
+}
+
+// Dark: bg=#0d0d0d, stroke=#eeeeee 1px
+.cardDark {
+  background: var(--color-background-dark);
+  border: 1px solid #eeeeee;
+}
+
+// Light: bg=#ffffff, stroke=#e2ebf2 1px
+.cardLight {
+  background: $color-white;
+  border: 1px solid #e2ebf2;
+}
+
+// Inner panel: pad=8, br=8, chip at top / text at bottom
+// backgroundImage (gradient + img) set via inline style
+.cardPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: rem(8px);
+  border-radius: rem(8px);
+  background-size: auto, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+// Figma dark-variant panel height: 135px
+.cardPanelDark {
+  height: rem(135px);
+}
+
+// Figma light-variant panel height: 150px
+.cardPanelLight {
+  height: rem(150px);
+}
+
+// Blue panel base: #000099
+.panelBlue {
+  background-color: $color-blue;
+}
+
+// LightBlue panel base: #afe4ff
+.panelLightBlue {
+  background-color: $color-sky-blue;
+}
+
+// Figma Chip: pad=(2,8) or (3,8), br=12
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: rem(12px);
+  padding: rem(2px) rem(8px);
+  align-self: flex-start;
+}
+
+// Dark card chip: bg=#efefef, text=#25304b, fs=10/500, lh=16
+.chipDark {
+  @include mweb-so-chip-sm;
+  background: var(--color-text-light);
+  color: $color-navy;
+}
+
+// Light card chip: bg=#eaf8ff, text=#348dc4, fs=12/500, lh=18
+.chipLight {
+  @include mweb-so-chip-lg;
+  padding-block: rem(3px);
+  background: $color-chip-blue-bg;
+  color: #348dc4;
+}
+
+// Text group at bottom of panel
+.textBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+// "Text" label: fs=14/400, lh=20
+.offerText {
+  @include mweb-so-offer-text;
+  margin-bottom: rem(8px);
+}
+
+.offerTextLight {
+  color: $color-chip-blue-bg;
+}
+
+.offerTextDark {
+  color: $color-navy;
+}
+
+.offerTitle {
+  display: block;
+}
+
+// Dark card title: fs=14/600, lh=21, #efefef
+.offerTitleSm {
+  @include mweb-so-offer-title-sm;
+  color: var(--color-text-light);
+}
+
+// Light card title: fs=20/600, lh=32, #ffffff
+.offerTitleLg {
+  @include mweb-so-offer-title-lg;
+  color: $color-white;
+}
+
+// Subtitle: fs=12/400, lh=18, #afe4ff
+.offerSubtitle {
+  @include mweb-so-offer-subtitle;
+  color: var(--color-text-info);
+}
+
+.brandName {
+  display: block;
+}
+
+// Dark card brand: fs=16/500, ls=-0.4px, #a97d0e
+.brandDark {
+  @include mweb-so-brand-sm;
+  color: var(--color-text-accent);
+}
+
+// Light card brand: fs=18/500, ls=-0.4px, #000099
+.brandLight {
+  @include mweb-so-brand-lg;
+  color: $color-blue;
+}
