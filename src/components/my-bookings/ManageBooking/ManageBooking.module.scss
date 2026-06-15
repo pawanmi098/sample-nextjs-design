@@ -1,0 +1,69 @@
+@use '../../../styles/_shared' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+}
+
+.heading {
+  margin: 0;
+  @include mb-change-heading;
+  color: var(--color-text-light);
+}
+
+.accordionList {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+}
+
+.accordionItem {
+  background: var(--color-background-dark);
+  border: rem(1px) solid var(--bg-primary);
+  border-radius: rem(8px);
+  padding: rem(12px) rem(16px);
+}
+
+.accordionRow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: rem(12px);
+}
+
+.iconCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: rem(42px);
+  height: rem(42px);
+  border-radius: 50%;
+  background: var(--bg-primary);
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4px);
+  flex: 1;
+}
+
+.titleRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: rem(24px);
+}
+
+.itemTitle {
+  @include mb-manage-label;
+  color: var(--color-text-light);
+}
+
+.description {
+  @include mb-section-label;
+  color: var(--text-secondary);
+}

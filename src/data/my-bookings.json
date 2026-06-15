@@ -1,0 +1,119 @@
+{
+  "bookingsList": {
+    "tabs": [
+      { "id": "all", "label": "All Trips", "active": true },
+      { "id": "upcoming", "label": "Upcoming Trips", "active": false },
+      { "id": "cancelled", "label": "Cancelled Trips", "active": false },
+      { "id": "completed", "label": "Completed Trips", "active": false }
+    ],
+    "bookings": [
+      {
+        "id": "booking-1",
+        "hotelImage": "/assets/my-bookings/hotel-thumbnail.png",
+        "hotelImageAlt": "Hotel Silver Pride One Aerocity",
+        "hotelName": "Hotel Silver Pride One Aerocity",
+        "location": "Delhi, India",
+        "bookingId": "RDBS78755340000780",
+        "status": "Confirmed",
+        "checkIn": { "date": "25th Aug 2023", "time": "12:00 PM" },
+        "checkOut": { "date": "26th Aug 2023", "time": "12:00 PM" },
+        "guestDetails": { "guests": "2 Adults + 1 Child", "rooms": "3 Rooms", "summary": "3 Guests, 3 Rooms" },
+        "ctaLabel": "View/Manage Booking"
+      },
+      {
+        "id": "booking-2",
+        "hotelImage": "/assets/my-bookings/hotel-thumbnail.png",
+        "hotelImageAlt": "Hotel Silver Pride One Aerocity",
+        "hotelName": "Hotel Silver Pride One Aerocity",
+        "location": "Delhi, India",
+        "bookingId": "RDBS78755340000781",
+        "status": "Cancelled",
+        "checkIn": { "date": "25th Aug 2023", "time": "12:00 PM" },
+        "checkOut": { "date": "26th Aug 2023", "time": "12:00 PM" },
+        "guestDetails": { "guests": "2 Adults", "rooms": "3 Rooms", "summary": "2 Guests, 3 Rooms" },
+        "refundNotice": "*Booking cancelled? Your refund will arrive 2,3 business days.",
+        "ctaLabel": "View/Manage Booking"
+      },
+      {
+        "id": "booking-3",
+        "hotelImage": "/assets/my-bookings/hotel-thumbnail.png",
+        "hotelImageAlt": "Hotel Silver Pride One Aerocity",
+        "hotelName": "Hotel Silver Pride One Aerocity",
+        "location": "Delhi, India",
+        "bookingId": "RDBS78755340000782",
+        "status": "Completed",
+        "checkIn": { "date": "25th Aug 2023", "time": "12:00 PM" },
+        "checkOut": { "date": "26th Aug 2023", "time": "12:00 PM" },
+        "guestDetails": { "guests": "2 Adults + 1 Child", "rooms": "3 Rooms", "summary": "3 Guests, 3 Rooms" },
+        "loyaltyBanner": "1,200 IndiGo BluChips will be credited after your trip is complete",
+        "ctaLabel": "View/Manage Booking"
+      }
+    ]
+  },
+  "promoCards": {
+    "image": "/assets/my-bookings/promo-card-bg.jpg",
+    "imageAlt": "Beach resort view",
+    "descriptor": "Bengaluru flight starting from ₹5699",
+    "headline": "Save up to 10% on your return journey",
+    "mwebTitle": "First in, Fast out",
+    "mwebSubtitle": "Flights starting at ₹",
+    "validFromLabel": "Valid from"
+  },
+  "manageBooking": {
+    "heading": "Change Your Journey",
+    "accordionItems": [
+      {
+        "id": "cancel",
+        "icon": "/assets/my-bookings/icon-hotel.svg",
+        "iconAlt": "Cancel",
+        "title": "Cancel booking",
+        "description": "Your plan changed? Easily choose a different flight for your trip."
+      }
+    ]
+  },
+  "loginCard": {
+    "quickAccessLabel": "Access your bookings quickly",
+    "description": "Login to choose from your existing bookings on IndiGo App",
+    "ctaLabel": "Login Now"
+  },
+  "findBooking": {
+    "sectionLabel": "My Bookings",
+    "title": {
+      "prefix": "Add using Booking ID to view & ",
+      "accent": "manage your bookings"
+    },
+    "fields": [
+      {
+        "id": "bookingRef",
+        "placeholder": "Booking Reference",
+        "type": "text"
+      },
+      {
+        "id": "emailId",
+        "placeholder": "Email Id",
+        "type": "email"
+      }
+    ],
+    "ctaLabel": "Find Booking"
+  },
+  "findBookingMweb": {
+    "sectionLabel": "FIND YOUR BOOKING",
+    "title": {
+      "prefix": "Add using Booking ID to ",
+      "accent": "view & manage your bookings"
+    },
+    "fields": [
+      {
+        "id": "bookingRef",
+        "placeholder": "Booking ID",
+        "type": "text"
+      },
+      {
+        "id": "emailId",
+        "placeholder": "Email ID",
+        "type": "email"
+      }
+    ],
+    "ctaLabel": "View Booking"
+  }
+}

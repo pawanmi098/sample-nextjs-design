@@ -1,0 +1,475 @@
+@use '../../../styles/_shared' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+}
+
+// ── Tabs ─────────────────────────────────────────────────────────────────────
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(15px);
+}
+
+.tab {
+  @include mb-tab-label;
+  padding: rem(8px) rem(12px);
+  border-radius: rem(18px);
+  border: 1px solid var(--color-background-dark);
+  background: var(--color-text-light);
+  color: var(--color-background-dark);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.tabActive {
+  background: var(--color-background-dark);
+  border-color: var(--color-border-gold);
+  color: var(--color-text-accent);
+}
+
+// ── Booking list ──────────────────────────────────────────────────────────────
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+}
+
+// ── Card ──────────────────────────────────────────────────────────────────────
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+  padding: rem(16px);
+  border: 1px solid var(--border-tertiary);
+  border-radius: rem(12px);
+}
+
+// ── Card header ───────────────────────────────────────────────────────────────
+
+.cardHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.hotelRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(12px);
+}
+
+.hotelImageWrapper {
+  position: relative;
+  width: rem(76px);
+  height: rem(59px);
+  border-radius: rem(8px);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.hotelInfo {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8px);
+}
+
+.hotelName {
+  @include mb-booking-hotel-name;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.metaRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(8px);
+}
+
+.locationGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(4px);
+}
+
+.locationText {
+  @include mb-manage-label;
+  color: var(--color-text-light);
+}
+
+.separator {
+  @include mb-manage-label;
+  color: var(--color-text-light);
+}
+
+.bookingId {
+  @include mb-cta-label;
+  color: var(--color-text-light);
+}
+
+// ── Card actions (right of header) ────────────────────────────────────────────
+
+.cardActions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: rem(9px);
+}
+
+.status {
+  @include mb-booking-status;
+  color: var(--color-text-success);
+}
+
+.iconRow {
+  display: flex;
+  flex-direction: row;
+  gap: rem(20px);
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(24px);
+  height: rem(24px);
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+// ── Divider ───────────────────────────────────────────────────────────────────
+
+.divider {
+  height: 0;
+  border: none;
+  border-top: rem(1.5px) solid var(--border-tertiary);
+}
+
+// ── Card footer ───────────────────────────────────────────────────────────────
+
+.cardFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.tripDetails {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(32px);
+  background: var(--background-dark);
+  border-radius: rem(8px);
+  padding: rem(12px) rem(16px);
+}
+
+.tripDivider {
+  width: 0;
+  align-self: stretch;
+  border: none;
+  border-left: rem(0.75px) solid var(--border-tertiary);
+}
+
+.detailGroup {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4px);
+}
+
+.detailLabel {
+  @include mb-section-label;
+  color: var(--color-text-light);
+}
+
+.detailValues {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailDate {
+  @include mb-cta-label;
+  color: var(--color-text-light);
+}
+
+.detailTime {
+  @include mb-booking-detail-time;
+  color: var(--color-text-light);
+}
+
+// ── CTA button ────────────────────────────────────────────────────────────────
+
+.cta {
+  @include mb-booking-cta;
+  color: var(--color-text-light);
+  background: var(--background-gold);
+  border: none;
+  border-radius: rem(8px);
+  padding: rem(7px) rem(12px);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+// ── Mweb card list ────────────────────────────────────────────────────────────
+
+.mwebList {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+}
+
+// ── Mweb card ─────────────────────────────────────────────────────────────────
+
+.mwebCard {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+  background: var(--background-dark);
+  border-radius: rem(8px);
+  padding: rem(16px) rem(12px);
+}
+
+// ── Mweb card top (location+badge, hotel info) ────────────────────────────────
+
+.mwebCardTop {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+}
+
+.mwebHeaderRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mwebLocation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(4px);
+}
+
+.mwebLocationText {
+  @include mb-mweb-location;
+  color: var(--color-text-info);
+}
+
+.mwebBadge {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(4px);
+  padding: 0 rem(8px);
+  height: rem(20px);
+  border-radius: rem(24px);
+}
+
+.mwebBadgeConfirmed {
+  background: var(--color-text-success);
+
+  .mwebBadgeDot {
+    background: #25304b;
+  }
+
+  .mwebBadgeLabel {
+    color: #25304b;
+  }
+}
+
+.mwebBadgeCancelled {
+  background: #e23b42;
+
+  .mwebBadgeDot {
+    background: var(--color-text-light);
+  }
+
+  .mwebBadgeLabel {
+    color: var(--color-text-light);
+  }
+}
+
+.mwebBadgeDot {
+  width: rem(8px);
+  height: rem(8px);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.mwebBadgeLabel {
+  @include mb-section-label;
+}
+
+.mwebHotelRow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: rem(12px);
+}
+
+.mwebThumbnail {
+  position: relative;
+  width: rem(45px);
+  height: rem(45px);
+  border-radius: rem(4px);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.mwebHotelInfo {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4px);
+}
+
+.mwebHotelName {
+  @include mb-mweb-hotel-name;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.mwebGuestRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(4px);
+}
+
+.mwebGuestText {
+  @include mb-section-label;
+  color: var(--color-text-light);
+}
+
+// ── Mweb check-in / check-out band ───────────────────────────────────────────
+
+.mwebDatesSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(12px);
+  background: var(--color-background-dark);
+  border-radius: rem(8px);
+  padding: rem(8px) rem(12px);
+}
+
+.mwebDateCol {
+  display: flex;
+  flex-direction: column;
+  gap: rem(2px);
+  flex: 1;
+}
+
+.mwebDateLabel {
+  @include mb-section-label;
+  color: var(--color-text-light);
+}
+
+.mwebDateValue {
+  @include mb-mweb-location;
+  color: var(--color-text-light);
+}
+
+.mwebDateDivider {
+  width: rem(1px);
+  align-self: stretch;
+  background: var(--border-tertiary);
+  flex-shrink: 0;
+}
+
+// ── Mweb loyalty banner (Completed status) ────────────────────────────────────
+
+.mwebLoyaltyBanner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(10px);
+  padding: rem(8px) rem(16px);
+  border-radius: rem(8px);
+  background: var(--bg-primary);
+}
+
+.mwebLoyaltyText {
+  @include mb-tab-label;
+  color: var(--color-text-light);
+}
+
+// ── Mweb footer (booking ID + actions) ───────────────────────────────────────
+
+.mwebFooter {
+  display: flex;
+  flex-direction: column;
+  gap: rem(15px);
+}
+
+.mwebBookingIdSection {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+}
+
+.mwebHorizDivider {
+  height: 0;
+  border: none;
+  border-top: rem(1px) solid var(--border-tertiary);
+}
+
+.mwebBookingId {
+  @include mb-cta-label;
+  color: var(--color-text-light);
+}
+
+.mwebRefundNotice {
+  @include mb-mweb-refund-notice;
+  color: var(--color-text-light);
+}
+
+.mwebActions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mwebIconGroup {
+  display: flex;
+  flex-direction: row;
+  gap: rem(20px);
+}
+
+.mwebIconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(28px);
+  height: rem(28px);
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mwebCta {
+  @include mb-booking-cta;
+  color: var(--color-text-light);
+  background: var(--background-gold);
+  border: none;
+  border-radius: rem(8px);
+  padding: rem(7px) rem(12px);
+  cursor: pointer;
+  white-space: nowrap;
+}

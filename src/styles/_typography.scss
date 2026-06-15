@@ -2,6 +2,7 @@
 @use "_media" as *;
 
 @forward "typography-booking-confirmation";
+@forward "typography-mybookings";
 
 @mixin hotel-title {
   @include defaultTypoStyles(

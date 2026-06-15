@@ -1,0 +1,82 @@
+@use "_mixins" as *;
+@use "_media" as *;
+
+@mixin mb-section-label {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mb-heading {
+  @include defaultTypoStyles(24, 0, 29, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin mb-input-placeholder {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mb-helper-text {
+  @include defaultTypoStyles(10, 0, 15, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mb-cta-label {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin mb-login-description {
+  @include defaultTypoStyles(14, 0, 21, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mb-manage-label {
+  @include defaultTypoStyles(14, 0, 21, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mb-modification-title {
+  @include defaultTypoStyles(20, 0, 30, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mb-promo-title {
+  @include defaultTypoStyles(20, -0.6, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin mb-promo-description {
+  @include defaultTypoStyles(12, 0, 18, 300, var(--font-family-poppins-light));
+}
+
+@mixin mb-promo-price {
+  @include defaultTypoStyles(14, 0, 20, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin mb-tab-label {
+  @include defaultTypoStyles(12, 0, 18, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mb-booking-hotel-name {
+  @include defaultTypoStyles(20, 0, 30, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mb-booking-status {
+  @include defaultTypoStyles(16, 0.3px, 20, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mb-booking-detail-time {
+  @include defaultTypoStyles(14, 0, 20, 400, var(--font-family-poppins-regular));
+}
+
+@mixin mb-booking-cta {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin mb-change-heading {
+  @include defaultTypoStyles(20, 0, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin mb-mweb-hotel-name {
+  @include defaultTypoStyles(16, 0, 24, 500, var(--font-family-poppins-medium));
+}
+
+@mixin mb-mweb-location {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin mb-mweb-refund-notice {
+  @include defaultTypoStyles(10, 0, 15, 500, var(--font-family-poppins-medium));
+}

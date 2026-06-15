@@ -1,0 +1,213 @@
+@use '../../../styles/_shared' as *;
+
+// ── Card ──────────────────────────────────────────────────────────────────────
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: rem(32px);
+  padding: rem(12px);
+  background: var(--color-background-dark);
+  border: rem(1px) solid var(--text-secondary);
+  border-radius: rem(12px);
+}
+
+// ── Content area ──────────────────────────────────────────────────────────────
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: rem(20px);
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8px);
+}
+
+.sectionLabel {
+  @include mb-section-label;
+  color: var(--color-text-light);
+}
+
+.heading {
+  margin: 0;
+  @include mb-heading;
+}
+
+.headingPrefix {
+  color: var(--color-text-light);
+}
+
+.headingAccent {
+  color: var(--color-text-success);
+}
+
+// ── Fields ────────────────────────────────────────────────────────────────────
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+}
+
+// ── Input row ─────────────────────────────────────────────────────────────────
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  padding: rem(12px);
+  border: rem(1px) solid var(--color-text-light);
+  border-radius: rem(8px);
+  height: rem(44px);
+  box-sizing: border-box;
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  @include mb-input-placeholder;
+  color: var(--color-text-light);
+
+  &::placeholder {
+    color: var(--text-secondary);
+  }
+}
+
+// ── CTA Button ────────────────────────────────────────────────────────────────
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: rem(40px);
+  background: var(--text-secondary);
+  border: none;
+  border-radius: rem(8px);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.ctaLabel {
+  @include mb-cta-label;
+  color: var(--color-text-light);
+  opacity: 0.5;
+}
+
+// ── MWeb variant ──────────────────────────────────────────────────────────────
+
+.mwebWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+}
+
+.mwebHeader {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4px);
+}
+
+.mwebSectionLabel {
+  @include mb-section-label;
+  color: var(--color-text-light);
+}
+
+.mwebHeading {
+  margin: 0;
+  font-family: var(--font-family-bauhaus-std-medium);
+  font-size: rem(20px);
+  font-weight: 500;
+  line-height: rem(24px);
+  letter-spacing: 0;
+}
+
+.mwebHeadingPrefix {
+  color: var(--color-text-light);
+}
+
+.mwebHeadingAccent {
+  color: var(--color-text-success);
+}
+
+.mwebCard {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+  padding: rem(12px);
+  background: var(--color-background-dark);
+  border: rem(1px) solid var(--text-secondary);
+  border-radius: rem(12px);
+  backdrop-filter: blur(rem(16px));
+  box-shadow: 0 0 rem(28px) rem(16px) rgba(76, 93, 158, 0.04);
+}
+
+.mwebFields {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+}
+
+.mwebInputRow {
+  display: flex;
+  align-items: center;
+  padding: rem(12px);
+  background: var(--color-background-dark);
+  border: rem(1px) solid var(--color-text-light);
+  border-radius: rem(8px);
+  height: rem(42px);
+  box-sizing: border-box;
+}
+
+.mwebInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  @include mb-input-placeholder;
+  color: var(--color-text-light);
+
+  &::placeholder {
+    color: var(--text-secondary);
+  }
+}
+
+.mwebCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: rem(45px);
+  background: var(--bg-primary);
+  border: none;
+  border-radius: rem(22px);
+  cursor: pointer;
+  padding: rem(12px) rem(32px);
+  box-sizing: border-box;
+}
+
+.mwebCtaLabel {
+  @include mb-cta-label;
+  color: var(--text-secondary);
+}
+
+// ── MWeb filled state (both inputs have values) ────────────────────────────────
+
+.mwebCardFilled {
+  background: $color-navy;
+  border: none;
+}
+
+.mwebCtaFilled {
+  background: $color-gold;
+}
+
+.mwebCtaLabelFilled {
+  color: var(--color-text-light);
+}

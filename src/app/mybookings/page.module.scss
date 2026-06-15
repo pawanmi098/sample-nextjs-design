@@ -1,0 +1,52 @@
+@use '../../styles/_shared' as *;
+
+.pageContainer {
+  padding: rem(20px) rem(20px) rem(24px);
+
+  @include media(">tablet") {
+    padding: rem(45px) rem(64px) rem(33px);
+  }
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(24px);
+
+  @include media(">tablet") {
+    grid-template-columns: rem(385px) 1fr;
+    gap: rem(28px);
+    align-items: start;
+  }
+}
+
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  gap: rem(23px);
+}
+
+.rightSection {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+  padding-top: rem(23px);
+}
+
+.webOnly {
+  display: none;
+
+  @include media(">tablet") {
+    display: block;
+  }
+}
+
+.mwebOnly {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+
+  @include media(">tablet") {
+    display: none;
+  }
+}
