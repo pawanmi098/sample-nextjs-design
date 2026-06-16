@@ -1,0 +1,130 @@
+@use "_mixins" as *;
+@use "_media" as *;
+
+// Page header
+@mixin cb-page-title {
+  @include defaultTypoStyles(24, 0, 28, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin cb-page-subtitle {
+  @include defaultTypoStyles(14, 0, 21, 400, var(--font-family-poppins-regular));
+}
+
+// Card headings (Bauhaus)
+@mixin cb-card-hotel-name {
+  @include defaultTypoStyles(20, 0, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin cb-policy-card-title {
+  @include defaultTypoStyles(20, 0, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+// Header
+@mixin cb-header-title {
+  @include defaultTypoStyles(20, 0, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin cb-back-label {
+  @include defaultTypoStyles(14, 0, 21, 400, var(--font-family-poppins-regular));
+}
+
+// Booking Summary
+@mixin cb-hotel-name {
+  @include defaultTypoStyles(20, 0, 30, 500, var(--font-family-poppins-medium));
+}
+
+@mixin cb-location {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin cb-booking-id {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin cb-status {
+  @include defaultTypoStyles(12, 0.3px, 18, 500, var(--font-family-poppins-medium));
+}
+
+@mixin cb-date-label {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin cb-date-value {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin cb-guest-detail {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+// Cancellation Policy
+@mixin cb-policy-title {
+  @include defaultTypoStyles(18, -0.4px, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin cb-policy-subtitle {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin cb-step-label {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin cb-step-amount {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin cb-step-date {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin cb-policy-bullet {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+// Cancellation Reason
+@mixin cb-reason-title {
+  @include defaultTypoStyles(18, -0.4px, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin cb-reason-subtitle {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+@mixin cb-reason-option {
+  @include defaultTypoStyles(14, 0, 21, 400, var(--font-family-poppins-regular));
+}
+
+@mixin cb-reason-placeholder {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+// Refund Summary
+@mixin cb-refund-title {
+  @include defaultTypoStyles(18, -0.4px, 24, 500, var(--font-family-bauhaus-std-medium));
+}
+
+@mixin cb-refund-label {
+  @include defaultTypoStyles(14, 0, 21, 400, var(--font-family-poppins-regular));
+}
+
+@mixin cb-refund-value {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin cb-refund-total {
+  @include defaultTypoStyles(16, 0, 24, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin cb-refund-disclaimer {
+  @include defaultTypoStyles(10, 0, 15, 400, var(--font-family-poppins-regular));
+}
+
+// CTAs
+@mixin cb-cta-cancel {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+@mixin cb-cta-keep {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}

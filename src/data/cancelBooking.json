@@ -1,0 +1,74 @@
+{
+  "header": {
+    "backLabel": "Back",
+    "title": "Confirm Cancellation",
+    "subtitle": "You are about to cancel your entire booking. Please review the details below before cancelling."
+  },
+  "bookingSummary": {
+    "hotelImage": "/assets/my-bookings/hotel-thumbnail.png",
+    "hotelImageAlt": "Hotel Silver Pride One Aerocity",
+    "hotelName": "Hotel Silver Pride One Aerocity",
+    "location": "Delhi, India",
+    "bookingId": "RDBS78755340000780",
+    "status": "Confirmed",
+    "checkIn": { "date": "25th Aug 2023", "time": "12:00 PM" },
+    "checkOut": { "date": "26th Aug 2023", "time": "12:00 PM" },
+    "roomType": "Deluxe King",
+    "guestDetails": { "guests": "2 Adults + 1 Child", "rooms": "3 Rooms", "summary": "3 Guests, 3 Rooms" },
+    "guestChip": "₹ 5,400 | 2 Adults + 1 Child"
+  },
+  "cancellationPolicy": {
+    "title": "Cancellation Policy",
+    "description": "This policy explains the cancellation terms and applicable refunds based on the timeline",
+    "steps": [
+      {
+        "id": "complete",
+        "label": "Fully refundable",
+        "amount": "₹ 5,400.00",
+        "date": "Till 21st Mar, 11:30 am"
+      },
+      {
+        "id": "processed",
+        "label": "Partially refundable",
+        "amount": "₹ 3,780.00",
+        "date": "After 21st Mar, 12:30 am"
+      },
+      {
+        "id": "non-refundable",
+        "label": "Non-refundable",
+        "amount": null,
+        "date": "After 22nd Mar, 12:30 am"
+      }
+    ],
+    "bullets": [
+      "Free cancellation is allowed till 21st Mar, 2024",
+      "No refund if cancelled after 12 pm 22nd Mar, 2024"
+    ]
+  },
+  "cancellationReason": {
+    "title": "Reason for Cancellation",
+    "subtitle": "Please select a reason for cancellation",
+    "reasons": [
+      { "id": "plans-changed", "label": "My plans have changed" },
+      { "id": "better-price", "label": "Found a better price elsewhere" },
+      { "id": "travel-emergency", "label": "Travel emergency" },
+      { "id": "duplicate-booking", "label": "Duplicate booking" },
+      { "id": "other", "label": "Other reason" }
+    ],
+    "otherPlaceholder": "Please specify your reason"
+  },
+  "refundSummary": {
+    "title": "Refund Summary",
+    "priceBreakupTitle": "Price Breakup",
+    "items": [
+      { "label": "Your Booking", "value": "₹ 5,400.00" },
+      { "label": "Cancellation Fees", "value": "₹ 0.00" },
+      { "label": "Refund Amount", "value": "₹ 5,400.00", "highlighted": true }
+    ],
+    "disclaimer": "* Refund will be credited to your original payment method within 5–7 business days."
+  },
+  "cta": {
+    "cancelLabel": "Cancel Booking",
+    "keepLabel": "Keep Booking"
+  }
+}

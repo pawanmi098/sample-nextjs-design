@@ -1,0 +1,23 @@
+@use '../../styles/_shared' as *;
+
+.pageContainer {
+  @include media('>tablet') {
+    padding: rem(45px) rem(64px) rem(33px);
+  }
+}
+
+.desktopSection {
+  display: none;
+
+  @include media('>tablet') {
+    display: block;
+  }
+}
+
+.mwebSection {
+  display: block;
+
+  @include media('>tablet') {
+    display: none;
+  }
+}

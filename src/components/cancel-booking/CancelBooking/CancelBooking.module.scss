@@ -1,0 +1,251 @@
+@use '../../../styles/_shared' as *;
+
+// ── Page wrapper ──────────────────────────────────────────────────────────────
+
+.cancelBooking {
+  width: 100%;
+}
+
+// ── Page header ───────────────────────────────────────────────────────────────
+
+.pageHeader {
+  margin-bottom: rem(32px);
+}
+
+.pageTitle {
+  margin: 0 0 rem(8px);
+  color: var(--color-text-light);
+  @include cb-page-title;
+}
+
+.pageSubtitle {
+  margin: 0;
+  color: var(--color-text-light);
+  @include cb-page-subtitle;
+}
+
+// ── Two-column layout ─────────────────────────────────────────────────────────
+
+.contentLayout {
+  display: flex;
+  flex-direction: column;
+  gap: rem(20px);
+
+  @include media('>tablet') {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: rem(20px);
+  }
+}
+
+// ── Left: Summary card ────────────────────────────────────────────────────────
+
+.summaryCard {
+  width: 100%;
+  background: var(--background-dark);
+  border: rem(1px) solid var(--color-border-secondary);
+  border-radius: rem(12px);
+  padding: rem(24px);
+
+  @include media('>tablet') {
+    flex: 1;
+  }
+}
+
+.hotelName {
+  margin: 0 0 rem(20px);
+  color: var(--color-text-light);
+  @include cb-card-hotel-name;
+}
+
+.divider {
+  height: rem(1px);
+  background: rgba(215, 215, 215, 0.2);
+  margin: 0 rem(-24px) rem(20px);
+}
+
+// ── Check In / Check Out ──────────────────────────────────────────────────────
+
+.datesRow {
+  display: flex;
+  gap: rem(48px);
+  margin-bottom: rem(20px);
+}
+
+.dateCol {
+  display: flex;
+  flex-direction: column;
+  gap: rem(6px);
+}
+
+.dateLabel {
+  color: var(--color-text-light);
+  @include cb-date-label;
+}
+
+.dateValue {
+  color: var(--color-text-light);
+  @include cb-date-value;
+}
+
+// ── Room & guest section ──────────────────────────────────────────────────────
+
+.roomSection {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8px);
+  margin-bottom: rem(20px);
+}
+
+.roomType {
+  color: var(--color-text-light);
+  @include cb-date-label;
+}
+
+.guestChip {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: rem(3px) rem(10px);
+  border: rem(1px) solid var(--color-border-secondary);
+  border-radius: rem(12px);
+  color: var(--color-text-light);
+  @include cb-date-value;
+}
+
+// ── Price Breakup ─────────────────────────────────────────────────────────────
+
+.priceBreakup {
+  display: flex;
+  flex-direction: column;
+  gap: rem(10px);
+  margin-bottom: rem(20px);
+}
+
+.breakupTitle {
+  display: block;
+  color: var(--color-text-light);
+  margin-bottom: rem(4px);
+  @include cb-date-label;
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.priceLabel {
+  color: var(--color-text-light);
+  @include cb-refund-label;
+}
+
+.priceValue {
+  color: var(--color-text-light);
+  @include cb-refund-value;
+}
+
+// ── Refund row (highlighted) ──────────────────────────────────────────────────
+
+.refundRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: rem(20px);
+}
+
+.refundLabel {
+  color: var(--color-text-light);
+  @include cb-refund-value;
+}
+
+.refundValue {
+  color: var(--color-text-light);
+  @include cb-refund-total;
+}
+
+// ── Info note ─────────────────────────────────────────────────────────────────
+
+.infoNote {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(8px);
+  margin-bottom: rem(28px);
+  color: var(--color-text-info);
+}
+
+.infoIcon {
+  flex-shrink: 0;
+  margin-top: rem(2px);
+}
+
+.infoText {
+  @include cb-policy-bullet;
+}
+
+// ── CTA buttons ───────────────────────────────────────────────────────────────
+
+.ctaRow {
+  display: flex;
+  gap: rem(16px);
+}
+
+.keepBtn,
+.cancelBtn {
+  flex: 1;
+  height: rem(56px);
+  border-radius: rem(8px);
+  cursor: pointer;
+  @include cb-cta-keep;
+}
+
+.keepBtn {
+  background: transparent;
+  border: rem(1px) solid var(--color-border-secondary);
+  color: var(--color-text-light);
+
+  &:hover {
+    border-color: var(--color-text-light);
+  }
+}
+
+.cancelBtn {
+  background: var(--background-gold);
+  border: none;
+  color: var(--color-text-light);
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+// ── Right: Cancellation Policy card ──────────────────────────────────────────
+
+.policyCard {
+  width: 100%;
+  border: rem(1px) solid var(--color-border-secondary);
+  border-radius: rem(12px);
+  padding: rem(20px) rem(24px);
+
+  @include media('>tablet') {
+    flex: 0 0 rem(378px);
+  }
+}
+
+.policyTitle {
+  margin: 0 0 rem(16px);
+  color: var(--color-text-light);
+  @include cb-policy-card-title;
+}
+
+.bullets {
+  margin: 0;
+  padding-left: rem(18px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(6px);
+}
+
+.bullet {
+  color: var(--color-text-light);
+  @include cb-policy-bullet;
+}
