@@ -1,0 +1,395 @@
+@use '../../styles/_shared' as *;
+
+// =============================================================================
+// Hotel Details Page
+// =============================================================================
+
+.page {
+  min-height: 100vh;
+  background: var(--color-background-dark);
+  color: var(--color-text-light);
+}
+
+// ─── Hero ────────────────────────────────────────────────────────────────────
+
+.hero {
+  width: 100%;
+  min-height: rem(200px);
+  background: linear-gradient(180deg, #1A2035 0%, #25304B 100%);
+  padding: rem(32px) rem(16px) rem(28px);
+
+  @include media(">tablet") {
+    min-height: rem(260px);
+    padding: rem(48px) rem(64px) rem(40px);
+  }
+}
+
+.heroContent {
+  max-width: rem(1440px);
+  margin: 0 auto;
+}
+
+.hotelMeta {
+  display: flex;
+  flex-direction: column;
+  gap: rem(10px);
+}
+
+.hotelName {
+  font-family: var(--font-family-poppins-semibold);
+  font-size: rem(22px);
+  font-weight: 600;
+  line-height: rem(30px);
+  color: var(--color-text-primary);
+  margin: 0;
+
+  @include media(">tablet") {
+    font-size: rem(28px);
+    line-height: rem(38px);
+  }
+}
+
+.stars {
+  display: flex;
+  gap: rem(3px);
+  align-items: center;
+}
+
+.starGold {
+  color: var(--color-text-accent);
+}
+
+.starEmpty {
+  color: var(--text-secondary);
+}
+
+.locationRow {
+  display: flex;
+  align-items: center;
+  gap: rem(6px);
+  color: var(--text-secondary);
+  font-size: rem(13px);
+  line-height: rem(20px);
+}
+
+.locationIcon {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--color-text-accent);
+}
+
+.locationText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: rem(8px);
+}
+
+.ratingBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: rem(2px) rem(8px);
+  border-radius: rem(4px);
+  background: var(--background-gold);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-poppins-semibold);
+  font-size: rem(13px);
+  font-weight: 600;
+  line-height: rem(20px);
+}
+
+.ratingLabel {
+  font-size: rem(13px);
+  color: var(--color-text-light);
+}
+
+.reviewCount {
+  font-size: rem(12px);
+  color: var(--text-secondary);
+}
+
+// ─── Page Sections ────────────────────────────────────────────────────────────
+
+.sections {
+  max-width: rem(1440px);
+  margin: 0 auto;
+  padding: 0 rem(16px) rem(64px);
+
+  @include media(">tablet") {
+    padding: 0 rem(64px) rem(80px);
+  }
+}
+
+.section {
+  padding: rem(40px) 0;
+  border-bottom: 1px solid var(--border-dark);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  @include media(">tablet") {
+    padding: rem(56px) 0;
+  }
+}
+
+.sectionHeading {
+  font-family: var(--font-family-poppins-semibold);
+  font-size: rem(18px);
+  font-weight: 600;
+  line-height: rem(26px);
+  color: var(--color-text-primary);
+  margin: 0 0 rem(20px);
+
+  @include media(">tablet") {
+    font-size: rem(22px);
+    line-height: rem(32px);
+    margin-bottom: rem(28px);
+  }
+}
+
+.sectionBody {
+  font-size: rem(14px);
+  line-height: rem(22px);
+  color: var(--color-text-light);
+  margin: 0 0 rem(16px);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// ─── Amenity chips ────────────────────────────────────────────────────────────
+
+.amenityGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(8px);
+  margin-top: rem(20px);
+}
+
+.amenityChip {
+  display: inline-flex;
+  align-items: center;
+  padding: rem(6px) rem(14px);
+  border: 1px solid var(--border-tertiary);
+  border-radius: rem(20px);
+  font-size: rem(12px);
+  line-height: rem(18px);
+  color: var(--color-text-light);
+}
+
+// ─── Rooms ────────────────────────────────────────────────────────────────────
+
+.roomGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(16px);
+
+  @include media(">tablet") {
+    grid-template-columns: 1fr 1fr;
+    gap: rem(20px);
+  }
+}
+
+.roomCard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-tertiary);
+  border-radius: rem(12px);
+  overflow: hidden;
+  background: var(--background-dark);
+}
+
+.roomImagePlaceholder {
+  width: 100%;
+  height: rem(160px);
+  background: linear-gradient(135deg, #25304B 0%, #1A2035 100%);
+
+  @include media(">tablet") {
+    height: rem(180px);
+  }
+}
+
+.roomInfo {
+  display: flex;
+  flex-direction: column;
+  gap: rem(10px);
+  padding: rem(16px);
+}
+
+.roomType {
+  font-family: var(--font-family-poppins-semibold);
+  font-size: rem(15px);
+  font-weight: 600;
+  line-height: rem(22px);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.roomMeta {
+  display: flex;
+  gap: rem(12px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: rem(12px);
+  color: var(--text-secondary);
+
+  li + li::before {
+    content: '·';
+    margin-right: rem(12px);
+  }
+}
+
+.roomFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: rem(4px);
+}
+
+.roomPrice {
+  display: flex;
+  align-items: baseline;
+  gap: rem(2px);
+}
+
+.currency {
+  font-size: rem(14px);
+  color: var(--color-text-accent);
+  font-family: var(--font-family-poppins-semibold);
+}
+
+.amount {
+  font-family: var(--font-family-poppins-semibold);
+  font-size: rem(18px);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.perNight {
+  font-size: rem(12px);
+  color: var(--text-secondary);
+  margin-left: rem(2px);
+}
+
+.selectBtn {
+  padding: rem(8px) rem(20px);
+  border: none;
+  border-radius: rem(6px);
+  background: var(--background-gold);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-poppins-semibold);
+  font-size: rem(13px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.88;
+  }
+}
+
+// ─── Reviews ─────────────────────────────────────────────────────────────────
+
+.ratingOverview {
+  display: flex;
+  align-items: center;
+  gap: rem(16px);
+  margin-bottom: rem(24px);
+}
+
+.ratingBig {
+  font-family: var(--font-family-poppins-semibold);
+  font-size: rem(48px);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-text-accent);
+}
+
+.reviewList {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+}
+
+.reviewCard {
+  padding: rem(20px);
+  border: 1px solid var(--border-dark);
+  border-radius: rem(10px);
+  background: var(--background-dark);
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: rem(10px);
+}
+
+.reviewAuthor {
+  font-family: var(--font-family-poppins-semibold);
+  font-size: rem(14px);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.reviewRating {
+  font-size: rem(13px);
+  color: var(--color-text-accent);
+  font-family: var(--font-family-poppins-semibold);
+  font-weight: 600;
+}
+
+.reviewText {
+  font-size: rem(13px);
+  line-height: rem(20px);
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+// ─── Policies / About ────────────────────────────────────────────────────────
+
+.policyList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+}
+
+.policyRow {
+  display: grid;
+  grid-template-columns: rem(140px) 1fr;
+  gap: rem(16px);
+  padding: rem(14px) 0;
+  border-bottom: 1px solid var(--border-dark);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  @include media(">tablet") {
+    grid-template-columns: rem(180px) 1fr;
+  }
+}
+
+.policyTerm {
+  font-family: var(--font-family-poppins-semibold);
+  font-size: rem(13px);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.policyDetail {
+  font-size: rem(13px);
+  line-height: rem(20px);
+  color: var(--color-text-light);
+  margin: 0;
+}
