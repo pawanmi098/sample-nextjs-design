@@ -4,6 +4,7 @@
 @forward "typography-booking-confirmation";
 @forward "typography-mybookings";
 @forward "typography-cancel-booking";
+@forward "typography-hotel-details.scss";
 
 @mixin hotel-title {
   @include defaultTypoStyles(

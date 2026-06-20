@@ -90,6 +90,10 @@
   gap: rem(8px);
 }
 
+.galleryTriggerRow {
+  margin-top: rem(8px);
+}
+
 .ratingBadge {
   display: inline-flex;
   align-items: center;
@@ -183,6 +187,10 @@
   font-size: rem(12px);
   line-height: rem(18px);
   color: var(--color-text-light);
+}
+
+.amenitiesAction {
+  margin-top: rem(24px);
 }
 
 // ─── Rooms ────────────────────────────────────────────────────────────────────

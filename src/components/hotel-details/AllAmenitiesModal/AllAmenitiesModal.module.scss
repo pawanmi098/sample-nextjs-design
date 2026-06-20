@@ -1,0 +1,131 @@
+@use '../../../styles/_shared' as *;
+
+// =============================================================================
+// Hotel Details — All Amenities Modal  (Figma node 320:23510)
+// =============================================================================
+
+// Figma specs:
+//   Card bg: #0D0D0D  border: 1px solid #7A85A0  radius: 12px
+//   Padding: 32px (top/bottom) × 42px (left/right)
+//   Header → divider gap: 27px   icon box: 24×24 border #969696
+//   Label: 14px / 400 / #EFEFEF
+
+// ─── Backdrop ────────────────────────────────────────────────────────────────
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.72);
+  padding: rem(16px);
+  overflow-y: auto;
+}
+
+// ─── Card ─────────────────────────────────────────────────────────────────────
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: rem(761px);
+  background: #0D0D0D;
+  border: 1px solid #7A85A0;
+  border-radius: rem(12px);
+  padding: rem(32px) rem(42px);
+
+  @include media('<=tablet') {
+    padding: rem(24px) rem(20px);
+  }
+}
+
+// ─── Header ───────────────────────────────────────────────────────────────────
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: rem(16px);
+}
+
+.title {
+  @include hd-amenities-title;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.closeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(32px);
+  height: rem(32px);
+  border: none;
+  background: none;
+  color: rgba(239, 239, 239, 0.6);
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-text-primary);
+  }
+}
+
+// ─── Divider ──────────────────────────────────────────────────────────────────
+
+.divider {
+  width: 100%;
+  height: rem(1px);
+  background: #7A85A0;
+  margin-bottom: rem(27px);
+  opacity: 0.6;
+}
+
+// ─── Amenity Grid ─────────────────────────────────────────────────────────────
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: rem(24px) rem(16px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @include media('<=tablet') {
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(20px) rem(12px);
+  }
+}
+
+// ─── Amenity Item ─────────────────────────────────────────────────────────────
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: rem(10px);
+}
+
+.iconBox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: rem(24px);
+  height: rem(24px);
+  border: 1px solid rgba(150, 150, 150, 0.65);
+  border-radius: rem(3px);
+  color: #EFEFEF;
+
+  svg {
+    width: rem(16px);
+    height: rem(16px);
+  }
+}
+
+.label {
+  @include hd-amenities-item;
+  color: #EFEFEF;
+}

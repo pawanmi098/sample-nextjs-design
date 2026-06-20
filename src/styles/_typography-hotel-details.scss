@@ -1,0 +1,111 @@
+@use "_mixins" as *;
+@use "_media" as *;
+
+// HotelPhotosViewer — tab bar
+@mixin hd-photos-tab {
+  @include defaultTypoStyles(14, 0.2px, 22, 400, var(--font-family-poppins-regular));
+
+  @include media('>tablet') {
+    font-size: rem(15px);
+  }
+}
+
+@mixin hd-photos-tab-active {
+  font-family: var(--font-family-poppins-medium);
+  font-weight: 500;
+}
+
+// HotelPhotosViewer — back link
+@mixin hd-photos-back-link {
+  @include defaultTypoStyles(14, 0, 22, 400, var(--font-family-poppins-regular));
+}
+
+// HotelPhotosViewer — category section heading
+@mixin hd-photos-category-heading {
+  @include defaultTypoStyles(20, 0, 28, 600, var(--font-family-poppins-semibold));
+
+  @include media('>tablet') {
+    font-size: rem(24px);
+    line-height: rem(34px);
+  }
+}
+
+// HotelGalleryToggle — trigger button
+@mixin hd-gallery-trigger-btn {
+  @include defaultTypoStyles(13, 0, 20, 500, var(--font-family-poppins-medium));
+}
+
+// AllAmenitiesModal — section title
+@mixin hd-amenities-title {
+  @include defaultTypoStyles(16, 0, 24, 600, var(--font-family-poppins-semibold));
+
+  @include media('>tablet') {
+    font-size: rem(18px);
+    line-height: rem(26px);
+  }
+}
+
+// AllAmenitiesModal — amenity item label
+@mixin hd-amenities-item {
+  @include defaultTypoStyles(14, 0, 20, 400, var(--font-family-poppins-regular));
+}
+
+// RoomDetailsModal — header room label ("Classic Room")
+@mixin hd-room-modal-label {
+  @include defaultTypoStyles(10, 0, 15, 500, var(--font-family-poppins-medium));
+}
+
+// RoomDetailsModal — section headings ("Room Details", "Room Amenities", "Rate Plan")
+@mixin hd-room-section-heading {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+// RoomDetailsModal — detail / amenity label text
+@mixin hd-room-detail-text {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+// RoomDetailsModal — rate plan name
+@mixin hd-plan-name {
+  @include defaultTypoStyles(12, 0, 18, 600, var(--font-family-poppins-semibold));
+}
+
+// RoomDetailsModal — plan feature text (cancellation / meals)
+@mixin hd-plan-feature-text {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+// RoomDetailsModal — plan primary price (₹ 15,000)
+@mixin hd-plan-price-main {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+// RoomDetailsModal — plan original / strikethrough price (₹ 14,000)
+@mixin hd-plan-price-strike {
+  @include defaultTypoStyles(10, 0, 15, 500, var(--font-family-poppins-medium));
+}
+
+// RoomDetailsModal — per-night label ("/night")
+@mixin hd-plan-per-night {
+  @include defaultTypoStyles(14, 0, 20, 400, var(--font-family-poppins-regular));
+}
+
+// RoomDetailsModal — loyalty earn chip text
+@mixin hd-plan-chip-text {
+  @include defaultTypoStyles(12, 0, 18, 400, var(--font-family-poppins-regular));
+}
+
+// RoomDetailsModal — Reserve Now button label
+@mixin hd-reserve-btn {
+  @include defaultTypoStyles(14, 0, 21, 600, var(--font-family-poppins-semibold));
+}
+
+// HotelMapView — "This hotel" chip label
+@mixin hd-map-chip-label {
+  @include defaultTypoStyles(12, 0, 18, 500, var(--font-family-poppins-medium));
+}
+
+// HotelMapView — category accordion header / "Show similar nearby" label
+@mixin hd-map-category-header {
+  @include defaultTypoStyles(14, 0, 20, 400, var(--font-family-poppins-regular));
+}

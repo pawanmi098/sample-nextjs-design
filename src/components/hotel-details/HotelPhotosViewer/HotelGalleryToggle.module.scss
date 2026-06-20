@@ -1,0 +1,27 @@
+@use '../../../styles/_shared' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  overflow-y: auto;
+  background: var(--color-background-dark);
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  padding: rem(8px) rem(18px);
+  border: 1px solid var(--color-border-gold);
+  border-radius: rem(6px);
+  background: none;
+  color: var(--color-text-accent);
+  @include hd-gallery-trigger-btn;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    background: var(--background-gold);
+    color: var(--color-text-primary);
+  }
+}

@@ -1,0 +1,377 @@
+@use '../../../styles/_shared' as *;
+
+// =============================================================================
+// HotelMapView — Figma node 320:23378
+// Outer wrapper: 1152×733, bg #0D0D0D, padding 20px top/bottom
+// Inner card:    1152×693, border 1px #7A85A0, border-radius 20px, overflow hidden
+// =============================================================================
+
+.root {
+  background: var(--color-background-dark);
+  padding: rem(20px) 0;
+}
+
+.inner {
+  position: relative;
+  width: rem(1152px);
+  height: rem(693px);
+  margin: 0 auto;
+  border: 1px solid var(--text-secondary);
+  border-radius: rem(20px);
+  overflow: hidden;
+}
+
+// ─── Map Area ────────────────────────────────────────────────────────────────
+// Fills the entire inner card; all overlays are absolutely positioned inside.
+
+.mapArea {
+  position: absolute;
+  inset: 0;
+}
+
+.mapBg {
+  object-fit: cover;
+}
+
+// ─── Close Button — top-left (pos 18, 19) ────────────────────────────────────
+
+.closeBtn {
+  position: absolute;
+  top: rem(19px);
+  left: rem(18px);
+  width: rem(40px);
+  height: rem(40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  padding: 0;
+  z-index: 2;
+
+  &:hover {
+    color: var(--color-text-light);
+  }
+}
+
+// ─── Map Controls — left column (pos 22, 275) ────────────────────────────────
+// Five 32×32 buttons stacked vertically, gap 8px.
+
+.mapControls {
+  position: absolute;
+  left: rem(22px);
+  top: rem(275px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(8px);
+  z-index: 2;
+}
+
+.mapBtn {
+  width: rem(32px);
+  height: rem(32px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  border: 1px solid var(--text-secondary);
+  border-radius: rem(8px);
+  padding: rem(4px);
+  cursor: pointer;
+  color: var(--color-text-light);
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+// ─── "This hotel" pin chip — pos (433, 217) ──────────────────────────────────
+
+.hotelPin {
+  position: absolute;
+  left: rem(433px);
+  top: rem(217px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.hotelChip {
+  display: flex;
+  align-items: center;
+  gap: rem(4px);
+  width: rem(98px);
+  height: rem(24px);
+  padding: rem(2px) rem(8px);
+  background: var(--color-text-primary);
+  border-radius: rem(12px);
+}
+
+.chipBedIcon {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--color-background-dark);
+}
+
+.chipLabel {
+  @include hd-map-chip-label;
+  color: var(--color-background-dark);
+}
+
+// Downward-pointing triangle below chip
+.chipArrow {
+  width: 0;
+  height: 0;
+  border-left: rem(7px) solid transparent;
+  border-right: rem(7px) solid transparent;
+  border-top: rem(7px) solid var(--color-text-primary);
+}
+
+// ─── "Show similar nearby" — top-right, pos (815, 21), 307×44 ───────────────
+
+.similarRow {
+  position: absolute;
+  top: rem(21px);
+  right: rem(30px);
+  display: flex;
+  align-items: center;
+  gap: rem(16px);
+  width: rem(307px);
+  height: rem(44px);
+  padding: rem(8px) rem(12px);
+  background: var(--bg-primary);
+  border: 1px solid var(--text-secondary);
+  border-radius: rem(8px);
+  cursor: pointer;
+  z-index: 2;
+}
+
+// Visually hidden native checkbox
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.checkbox {
+  flex-shrink: 0;
+  width: rem(32px);
+  height: rem(32px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-text-primary);
+  border-radius: rem(4px);
+  color: transparent;
+}
+
+.checkboxOn {
+  background: var(--color-text-accent);
+  color: var(--color-text-primary);
+}
+
+.similarLabel {
+  @include hd-map-category-header;
+  color: var(--color-text-light);
+}
+
+// ─── Right Sidebar Panel — pos (815, 88), 307×583 ────────────────────────────
+
+.panel {
+  position: absolute;
+  top: rem(88px);
+  right: rem(30px);
+  width: rem(307px);
+  height: rem(583px);
+  background: var(--color-background-dark);
+  border-radius: rem(12px);
+  padding: rem(12px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+  overflow-y: auto;
+  z-index: 2;
+
+  &::-webkit-scrollbar {
+    width: rem(4px);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--text-secondary);
+    border-radius: rem(2px);
+  }
+}
+
+// ─── Search input row ─────────────────────────────────────────────────────────
+
+.searchInput {
+  display: flex;
+  align-items: center;
+  gap: rem(8px);
+  height: rem(44px);
+  padding: rem(12px);
+  background: var(--bg-primary);
+  border: 1px solid var(--text-secondary);
+  border-radius: rem(8px);
+  flex-shrink: 0;
+}
+
+.searchIcon {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--color-text-light);
+}
+
+.searchPlaceholder {
+  @include hd-room-detail-text;
+  color: var(--text-secondary);
+}
+
+// ─── Category list ────────────────────────────────────────────────────────────
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+  flex: 1;
+  min-height: 0;
+}
+
+// Expanded category card (Attractions)
+.categoryExpanded {
+  border: 1px solid var(--text-secondary);
+  border-radius: rem(12px);
+  overflow: hidden;
+}
+
+.catHeader {
+  display: flex;
+  align-items: center;
+  gap: rem(11px);
+  padding: rem(16px);
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--color-border-card-light);
+}
+
+.catIcon {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--color-text-light);
+}
+
+.catLabel {
+  @include hd-map-category-header;
+  color: var(--color-text-light);
+  flex: 1;
+}
+
+.catChevron {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--color-text-light);
+  margin-left: auto;
+}
+
+// ─── Attraction item rows ─────────────────────────────────────────────────────
+
+.locationList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.locationRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: rem(12px) rem(8px);
+  background: var(--color-background-dark);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.locationRowLast {
+  border-bottom: none;
+  border: 1px solid var(--color-border-light-blue);
+  border-radius: 0 0 rem(12px) rem(12px);
+}
+
+.locationLeft {
+  display: flex;
+  align-items: center;
+  gap: rem(8px);
+}
+
+// Interactive checkbox button inside location row
+.checkBtn {
+  flex-shrink: 0;
+  width: rem(32px);
+  height: rem(32px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-text-primary);
+  border: none;
+  border-radius: rem(8px);
+  cursor: pointer;
+  color: transparent;
+  padding: 0;
+}
+
+.checkBtnOn {
+  background: var(--color-text-accent);
+  color: var(--color-text-primary);
+}
+
+.locationMeta {
+  display: flex;
+  flex-direction: column;
+}
+
+.locationName {
+  @include hd-room-detail-text;
+  color: var(--color-text-light);
+}
+
+.locationType {
+  @include hd-room-detail-text;
+  color: var(--text-secondary);
+}
+
+.locationDist {
+  @include hd-room-detail-text;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+// ─── Collapsed category rows ──────────────────────────────────────────────────
+
+.categoryCollapsed {
+  display: flex;
+  align-items: center;
+  gap: rem(11px);
+  width: 100%;
+  padding: rem(16px);
+  background: var(--color-background-dark);
+  border: 1px solid var(--border-primary);
+  border-radius: rem(4px);
+  cursor: pointer;
+  text-align: left;
+
+  &:hover {
+    background: var(--bg-primary);
+  }
+}

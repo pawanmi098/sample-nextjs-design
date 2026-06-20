@@ -1,0 +1,403 @@
+@use '../../../styles/_shared' as *;
+
+// =============================================================================
+// Hotel Details — Room Details Modal  (Figma node 320:23833)
+// =============================================================================
+//
+// Figma specs (desktop, 1280-wide canvas):
+//   Panel: 951px wide, bg #0D0D0D, padding 16px all sides, gap 9px (VERTICAL)
+//   Header row: 920x37, room label 10px/Poppins-Medium/#efefef, close 24x24
+//   Divider: 1px #d7d7d7
+//   Body: vertical, gap 25px
+//   Image section: 919x496, arrows are 48x48 gold circles (#A97D0E)
+//   Details+amenities section: padding L24 R24, gap 37px (VERTICAL)
+//     Room Details row: gap 32px (HORIZONTAL), items have icon 24x24 + text 12px
+//     Amenities rows: gap 32px (HORIZONTAL), 4 items per row
+//   Rate Plans: 3 cards 274x372 each, gap 24px, padding L24 R24
+//     Active card bg: #1d1d1d  Inactive: #0d0d0d
+//     Card padding: 24px all sides
+//     Reserve Now button: 226x40 gold (#A97D0E)
+
+// ─── Backdrop ────────────────────────────────────────────────────────────────
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.75);
+  padding: rem(24px) rem(16px);
+  overflow-y: auto;
+}
+
+// ─── Panel ───────────────────────────────────────────────────────────────────
+
+.panel {
+  width: 100%;
+  max-width: rem(951px);
+  background: var(--color-background-dark);
+  display: flex;
+  flex-direction: column;
+  gap: rem(9px);
+  padding: rem(16px);
+  flex-shrink: 0;
+}
+
+// ─── Header ──────────────────────────────────────────────────────────────────
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.roomLabel {
+  @include hd-room-modal-label;
+  color: var(--color-text-primary);
+}
+
+.closeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(24px);
+  height: rem(24px);
+  padding: 0;
+  border: none;
+  background: none;
+  color: rgba(239, 239, 239, 0.6);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-text-primary);
+  }
+}
+
+.headerDivider {
+  width: 100%;
+  height: rem(1px);
+  background: #d7d7d7;
+  opacity: 0.5;
+}
+
+// ─── Body ────────────────────────────────────────────────────────────────────
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: rem(25px);
+}
+
+// ─── Image Section ────────────────────────────────────────────────────────────
+
+.imageSection {
+  position: relative;
+  width: 100%;
+  height: rem(496px);
+  background: var(--color-background-dark);
+  flex-shrink: 0;
+
+  @include media('<=tablet') {
+    height: rem(240px);
+  }
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background: #d7d7d7;
+}
+
+.arrowBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(48px);
+  height: rem(48px);
+  border-radius: 50%;
+  border: none;
+  background: var(--color-text-accent);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  z-index: 1;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.arrowPrev {
+  left: rem(16px);
+}
+
+.arrowNext {
+  right: rem(16px);
+}
+
+// ─── Room Info ────────────────────────────────────────────────────────────────
+
+.roomInfo {
+  display: flex;
+  flex-direction: column;
+  gap: rem(25px);
+}
+
+// ─── Details + Amenities wrapper ─────────────────────────────────────────────
+
+.detailsAmenities {
+  display: flex;
+  flex-direction: column;
+  gap: rem(37px);
+  padding: 0 rem(24px);
+}
+
+// ─── Section Heading (shared) ─────────────────────────────────────────────────
+
+.sectionHeading {
+  @include hd-room-section-heading;
+  color: var(--color-text-primary);
+  margin: 0 0 rem(12px);
+}
+
+// ─── Room Details Row ─────────────────────────────────────────────────────────
+
+.detailsSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailsRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(32px);
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(8px);
+}
+
+.detailIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(24px);
+  height: rem(24px);
+  flex-shrink: 0;
+  color: var(--color-text-primary);
+}
+
+.detailText {
+  @include hd-room-detail-text;
+  color: var(--color-text-primary);
+}
+
+// ─── Room Amenities ───────────────────────────────────────────────────────────
+
+.amenitiesSection {
+  display: flex;
+  flex-direction: column;
+  gap: rem(20px);
+}
+
+.amenitiesRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(32px);
+}
+
+.amenityItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(8px);
+}
+
+.amenityIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(24px);
+  height: rem(24px);
+  flex-shrink: 0;
+  color: var(--color-text-primary);
+}
+
+// ─── Rate Plans ───────────────────────────────────────────────────────────────
+
+.ratePlansSection {
+  display: flex;
+  flex-direction: column;
+  padding: 0 rem(24px);
+}
+
+.planCards {
+  display: flex;
+  flex-direction: row;
+  gap: rem(24px);
+
+  @include media('<=tablet') {
+    flex-direction: column;
+  }
+}
+
+// ─── Plan Card ────────────────────────────────────────────────────────────────
+
+.planCard {
+  flex: 1;
+  min-width: 0;
+  background: var(--color-background-dark);
+  padding: rem(24px);
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover:not(.planCardActive) {
+    background: rgba(255, 255, 255, 0.04);
+  }
+}
+
+.planCardActive {
+  background: var(--background-dark);
+}
+
+.planContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: rem(324px);
+  gap: rem(28px);
+}
+
+.planTop {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+}
+
+.planName {
+  @include hd-plan-name;
+  color: var(--bg-secondary);
+  display: block;
+}
+
+// ─── Plan Features ────────────────────────────────────────────────────────────
+
+.planFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4px);
+}
+
+.featureRow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: rem(8px);
+}
+
+.featureIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(24px);
+  height: rem(24px);
+  flex-shrink: 0;
+}
+
+.featureText {
+  @include hd-plan-feature-text;
+  color: var(--color-text-primary);
+  padding-top: rem(3px);
+}
+
+// ─── Plan Divider ─────────────────────────────────────────────────────────────
+
+.planDivider {
+  width: 100%;
+  height: rem(1px);
+  background: var(--color-border-secondary);
+  opacity: 0.4;
+}
+
+// ─── Pricing ──────────────────────────────────────────────────────────────────
+
+.pricing {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4px);
+}
+
+.priceMain {
+  @include hd-plan-price-main;
+  color: #c3272e;
+  display: block;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: rem(4px);
+}
+
+.priceStrike {
+  @include hd-plan-price-strike;
+  color: var(--color-text-primary);
+  text-decoration: line-through;
+}
+
+.perNight {
+  @include hd-plan-per-night;
+  color: var(--bg-secondary);
+}
+
+.earnChip {
+  @include hd-plan-chip-text;
+  color: #218946;
+  display: block;
+}
+
+// ─── Reserve Now Button ───────────────────────────────────────────────────────
+
+.reserveBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: rem(40px);
+  background: var(--background-gold);
+  border: none;
+  cursor: pointer;
+  @include hd-reserve-btn;
+  color: var(--color-text-primary);
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    opacity: 0.88;
+  }
+}

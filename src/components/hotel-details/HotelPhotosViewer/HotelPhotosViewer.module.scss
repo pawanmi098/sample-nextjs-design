@@ -1,0 +1,176 @@
+@use '../../../styles/_shared' as *;
+
+// =============================================================================
+// Hotel Details — Image Gallery overlay
+// =============================================================================
+
+$tab-bg: #1A2035;
+
+.gallery {
+  min-height: 100vh;
+  background: var(--color-background-dark);
+  color: var(--color-text-light);
+  display: flex;
+  flex-direction: column;
+}
+
+// ─── Tab Bar ─────────────────────────────────────────────────────────────────
+
+.tabBar {
+  width: 100%;
+  background: $tab-bg;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.tabList {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  max-width: rem(1440px);
+  margin: 0 auto;
+  padding: 0 rem(16px);
+  min-height: rem(56px);
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include media('>tablet') {
+    padding: 0 rem(64px);
+    min-height: rem(64px);
+  }
+}
+
+.tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0 rem(20px);
+  border: none;
+  background: none;
+  color: rgba(239, 239, 239, 0.45);
+  @include hd-photos-tab;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+
+  &:hover:not(.active) {
+    color: var(--color-text-primary);
+  }
+
+  @include media('>tablet') {
+    padding: 0 rem(24px);
+  }
+}
+
+.active {
+  color: var(--color-text-primary);
+  @include hd-photos-tab-active;
+}
+
+.indicator {
+  position: absolute;
+  bottom: 0;
+  left: rem(20px);
+  right: rem(20px);
+  height: rem(3px);
+  background: var(--color-text-accent);
+  border-radius: rem(3px) rem(3px) 0 0;
+
+  @include media('>tablet') {
+    left: rem(24px);
+    right: rem(24px);
+  }
+}
+
+.tabDivider {
+  width: 100%;
+  height: rem(1px);
+  background: var(--color-border-gold);
+  opacity: 0.6;
+}
+
+// ─── Content Area ─────────────────────────────────────────────────────────────
+
+.content {
+  flex: 1;
+  max-width: rem(1440px);
+  width: 100%;
+  margin: 0 auto;
+  padding: rem(24px) rem(16px) rem(64px);
+
+  @include media('>tablet') {
+    padding: rem(32px) rem(64px) rem(80px);
+  }
+}
+
+// ─── Back Link ────────────────────────────────────────────────────────────────
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(4px);
+  border: none;
+  background: none;
+  color: var(--color-text-accent);
+  @include hd-photos-back-link;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: rem(28px);
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.chevron {
+  font-size: rem(22px);
+  line-height: 1;
+  margin-top: rem(-2px);
+}
+
+// ─── Category Section ─────────────────────────────────────────────────────────
+
+.categorySection {
+  & + & {
+    margin-top: rem(40px);
+
+    @include media('>tablet') {
+      margin-top: rem(56px);
+    }
+  }
+}
+
+.categoryHeading {
+  @include hd-photos-category-heading;
+  color: var(--color-text-primary);
+  margin: 0 0 rem(20px);
+
+  @include media('>tablet') {
+    margin-bottom: rem(24px);
+  }
+}
+
+// ─── Image Grid ───────────────────────────────────────────────────────────────
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: rem(20px);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+  border-radius: rem(6px);
+  background: $tab-bg;
+}

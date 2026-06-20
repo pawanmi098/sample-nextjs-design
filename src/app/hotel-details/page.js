@@ -1,4 +1,8 @@
 import HotelNavBar from '@/components/hotel-details/HotelNavBar/HotelNavBar';
+import HotelGalleryToggle from '@/components/hotel-details/HotelPhotosViewer/HotelGalleryToggle';
+import AllAmenitiesToggle from '@/components/hotel-details/AllAmenitiesModal/AllAmenitiesToggle';
+import RoomDetailsToggle from '@/components/hotel-details/RoomDetailsModal/RoomDetailsToggle';
+import HotelMapView from '@/components/hotel-details/HotelMapView/HotelMapView';
 import styles from './page.module.scss';
 
 const HOTEL = {
@@ -51,12 +55,20 @@ export default function HotelDetailsPage() {
               <span className={styles.ratingLabel}>Very Good</span>
               <span className={styles.reviewCount}>({HOTEL.reviewCount.toLocaleString()} reviews)</span>
             </div>
+            <div className={styles.galleryTriggerRow}>
+              <HotelGalleryToggle />
+            </div>
           </div>
         </div>
       </div>
 
       {/* Sticky Nav Bar */}
       <HotelNavBar />
+
+      {/* Quick test button — opens Room Details modal */}
+      <div style={{ padding: '16px 24px' }}>
+        <RoomDetailsToggle room={{ type: 'Classic Room', size: '44 m²', bed: 'Double Bed', price: 15000 }} />
+      </div>
 
       {/* Page Sections */}
       <div className={styles.sections}>
@@ -73,6 +85,9 @@ export default function HotelDetailsPage() {
             {['Free Wi-Fi', 'Swimming Pool', 'Fitness Centre', 'Restaurant', 'Bar / Lounge', '24-hr Front Desk', 'Airport Shuttle', 'Parking'].map(a => (
               <span key={a} className={styles.amenityChip}>{a}</span>
             ))}
+          </div>
+          <div className={styles.amenitiesAction}>
+            <AllAmenitiesToggle hotelName={HOTEL.name} />
           </div>
         </section>
 
@@ -99,12 +114,17 @@ export default function HotelDetailsPage() {
                       <span className={styles.amount}>{room.price.toLocaleString()}</span>
                       <span className={styles.perNight}>/night</span>
                     </div>
-                    <button className={styles.selectBtn} type="button">Select</button>
+                    <RoomDetailsToggle room={room} />
                   </div>
                 </div>
               </article>
             ))}
           </div>
+        </section>
+
+        <section id="location" className={styles.section} aria-labelledby="location-heading">
+          <h2 id="location-heading" className={styles.sectionHeading}>Location</h2>
+          <HotelMapView />
         </section>
 
         <section id="reviews" className={styles.section} aria-labelledby="reviews-heading">
