@@ -1,4 +1,5 @@
 import HotelNavBar from '@/components/hotel-details/HotelNavBar/HotelNavBar';
+import HotelMwebNavBar from '@/components/hotel-details/HotelMwebNavBar/HotelMwebNavBar';
 import HotelGalleryToggle from '@/components/hotel-details/HotelPhotosViewer/HotelGalleryToggle';
 import AllAmenitiesToggle from '@/components/hotel-details/AllAmenitiesModal/AllAmenitiesToggle';
 import RoomDetailsToggle from '@/components/hotel-details/RoomDetailsModal/RoomDetailsToggle';
@@ -61,6 +62,9 @@ export default function HotelDetailsPage() {
           </div>
         </div>
       </div>
+
+      {/* Mweb sticky nav bar (back + share + tabs) */}
+      <HotelMwebNavBar />
 
       {/* Sticky Nav Bar */}
       <HotelNavBar />

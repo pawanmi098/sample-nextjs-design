@@ -109,3 +109,14 @@
 @mixin hd-map-category-header {
   @include defaultTypoStyles(14, 0, 20, 400, var(--font-family-poppins-regular));
 }
+
+// HotelMwebNavBar — section tab label (mweb only)
+@mixin hd-mweb-nav-tab {
+  @include defaultTypoStyles(13, 0.2, 20, 400, var(--font-family-poppins-regular));
+}
+
+// HotelMwebNavBar — active section tab label (mweb only)
+@mixin hd-mweb-nav-tab-active {
+  font-family: var(--font-family-poppins-medium);
+  font-weight: 500;
+}
